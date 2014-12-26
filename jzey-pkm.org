@@ -6,10 +6,68 @@
 ** Glory_Emacs
 
 ** Glory_WinKernel
+*** winobj.exe decription and usage
+**** Description
+   Deep inside Windows lies a subsystem called the Object Manager 
+   that is responsible for tracking every resource in the system.
+   “Resources” can be files, Registry entries, hardware devices, running processes 
+   -- essentially everything in the system that can be named and addressed.
+
+   The object header includes items such as the object name, so that other processes 
+   can reference the object by name, and a security descriptor, so that the object manager
+   can control which processes access the system resource.
+   The tasks that the object manager performs include the following:
+   - Creating objects
+   - Verifying that a process has the right to use the object
+   - Creating object handles and returning them to the caller
+   - Maintaining resource quotas
+   - Creating duplicate handles
+   - Closing handles to objects
+ 
+**** Q A.
+    + Object Manager Namespace
+      - http://www.nynaeve.net/?p=61
+      - http://windowsitpro.com/systems-management/inside-nts-object-manager
+      - http://www.osronline.com/article.cfm?article=381 meandering througout Object Manager
+
+
+    + Nt Objects
+
+   
+*** UAC Bypass Study
+
+**** reference URLS:
++ http://www.greyhathacker.net/?p=796 
+
+
+*** todo items:
++ study windows internals
+
 
 ** Glory_WinFont
 
 ** Glory_IE
+*** IE Protect Mode Research
+**** some intresting items:
+   + Practical Sandbox
+   + \SOFTWARE\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\
+   + Elevation Policy
+   + two diffrent hooking  
+     IE Broker Shim
+     - iebrshim.dll
+     - Redirects process launch requests to broker
+
+     Application Compatibility shims
+     - AcLayers.dll
+     - AcRedir.dll
+     - Redirect registry and file access to low integrity locations 
+       
+   + Global Atom Table
+
+   + WindowStation \KnowDlls
+
+
+
 
 ** Glory_IOS
 
@@ -29,3 +87,17 @@
 ** Glory_VersionControl
 
 *** github
++ git config --global user.name "jzey"
++ git config --global user.email "******"
++ git init
++ git status
++ git add jzey-pkm.org
++ git commit -m "init-version-of-pkm"
++ git pull
++ git push
+
+** Glory_ForeignLanguage
+
+*** English
+
+**** Vocabulary
