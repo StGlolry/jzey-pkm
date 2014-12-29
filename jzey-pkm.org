@@ -66,9 +66,33 @@
 
    + WindowStation \KnowDlls
 
+   + registry symbolic link attack
+**** inter-process communication
+***** Shared Memory IPC
+***** COM ipc
 
-
-
+**** IE Shims(Compatibility Layer)
+(provide by ieshims.dll)
+***** Known Broker Object
+**** Services 
+services here refers to any functionality exposed by broker process
+which can be called by sandboxed process
+***** User Broker Object
+ieframe!CIEUserBrokerObject
+method exposed by UBO can refer to ieframe!CIEUserBrokerObject::QueryInterface()
+***** Known Broker Object
+refer to WP_ie10_EPM*.pdf 2.6.2
+***** Broker Components Message Handler
+those message handle invoked when inter-process message received
+via shared memory IPC.
++ ieframe!CBrowserFrame::_Handle*()
++ ieframe!CDownloadManager::HandleDownloadMessage()
+**** Archive Analysis
+***** CVE-2014-6322
+**** Test Point
+***** unproper set settings.
+***** inter-process Communitation
+***** Serveices
 ** Glory_IOS
 
 ** Glory_Linux
@@ -96,8 +120,37 @@
 + git pull
 + git push
 
+如果不小心使用git rm 删除了文件,可以使用git reset --hard 恢复到最后的提交版本
+
+git commit --amend  http://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%92%A4%E6%B6%88%E6%93%8D%E4%BD%9C
+
+git rm --cached  remove file from version control
+
+git config -l
+git config remote.origin.url https://username:password@github.com/StGlolry/jzey-pkm.git   
+
+git ls-files & git ls-tree -r master --name-only
+view tracked files
+
+https://github.com/github/gitignore  a collection of git ignore files
+how to use git ignore https://help.github.com/articles/ignoring-files/
+
+
 ** Glory_ForeignLanguage
 
 *** English
 
 **** Vocabulary
+- Note taken on [2014-12-29 Mon 00:40] \\
+  squelch
+  * n.压制；压碎；〈口〉压倒对方的议论[回答]；反驳得对方不再作声
+  * v.发扑哧声（如走在泥泞中似的）；制止；压制；遏制
+  * 网络静噪；镇压；静音
+- Note taken on [2014-12-26 Fri 00:18] \\
+  reception
+  * n.接待；招待会；欢迎；欢迎会
+  * 网络接待处；接收；接受
+- Note taken on [2014-12-25 Thu 23:25] \\
+  instantiate
+  * v.用具体例证说明
+  * 网络实例化；具现化；例示
