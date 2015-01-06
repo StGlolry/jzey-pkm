@@ -1,9 +1,22 @@
 
+
+
+** Glory_Daily
+*** 2015.1.5
+**** keep research mingw crosscompile 2h
+***** items
++ TlHelp32.h should be tlhelp32.h on linux crosscompile
+**** use linux & mingw & c write shellcode 2h
+**** setup the rtmfp & pcre environment for bug hunting 2h
 ** Glory_Android
 
 ** Glory_Browser
 
 ** Glory_Emacs
+**** 快捷键
++ zm  folder all
++ zo  jump back to  {
++ zh zl  move scree to left or right
 
 ** Glory_WinKernel
 *** winobj.exe decription and usage
@@ -32,6 +45,7 @@
 
 
     + Nt Objects
+      - http://blogs.ejb.cc/archives/7137/windows-internal-object-and-object-manager
 
    
 *** UAC Bypass Study
@@ -40,9 +54,16 @@
 + http://www.greyhathacker.net/?p=796 
 
 
+
+*** Windows Graphic Drivers
+
+**** WDDM (windows display driver model)
++ http://blogs.ejb.cc/archives/7039/windows-display-driver-wddm-programming-1 WDDM PROGRAMING
+
+**** 
+
 *** todo items:
 + study windows internals
-
 
 ** Glory_WinFont
 
@@ -67,6 +88,14 @@
    + WindowStation \KnowDlls
 
    + registry symbolic link attack
+
+   + what is unc 路径
+
+   + internet explorer have 5 predifined area
+     - 1.internet 2.local intranet 3.trusted sites 4.restricted sites 5.my computer
+
+   + can low right ie modify enviroment of current process or parent process?
+
 **** inter-process communication
 ***** Shared Memory IPC
 ***** COM ipc
@@ -87,15 +116,36 @@ those message handle invoked when inter-process message received
 via shared memory IPC.
 + ieframe!CBrowserFrame::_Handle*()
 + ieframe!CDownloadManager::HandleDownloadMessage()
+**** Elevation Policy
++ check if some registry is dangerous to execute other commands like cmd and rundll32. 
 **** Archive Analysis
 ***** CVE-2014-6322
 **** Test Point
 ***** unproper set settings.
 ***** inter-process Communitation
 ***** Serveices
+***** process functions which take effect on parent or other process
++ [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms684320%2528v%3Dvs.85%2529.aspx][process related apis]]
 ** Glory_IOS
 
 ** Glory_Linux
+*** useful commands
++ rar & unrar zip & unzip tar zxvf & xvf
+  http://blog.sina.com.cn/s/blog_667725170100npua.html  rar&unrar
+
+  tar -d ***.lzma
++ find
+  find /mnt/hgfs/WDoc -type f find /mnt/hgfs/WDoc -type d
+
+  ## 对找到的所有文件进行批处理
+
+  find . -type f -exec chmod 644 {} \; # 后面的\;必须的，表示按行输出
+
+  find . -type d -exec chmod 755 {} \; # {} 表示找到的文件路径
+
+  in zsh , type find then tab… so convinient.
++ apt-cache search
+  
 
 ** Glory_ProgramAnalysis
 
@@ -107,6 +157,78 @@ via shared memory IPC.
 ** Glory_AdobeReader
 
 ** Glory_Programing
+
+*** mingw cross-compile
++ install mingw(32)
+  - sudo apt-get install mingw32  (when i use mingw32 some header files like strsafe.h can't found)
+  - then mingw exsist in /usr forlder
+  - or you can install mingw-w64 
+   sudo apt-get install mingw-w64 mingw-w64-common mingw-w64-i686-dev mingw-w64-tools mingw-w64-x86-64-dev
+
++ compile
+  - i586-mingw32msvc-gcc hello/src/main.cpp -o hello/src/main.exe
+
+  - or use cmake file.  [[file:~/Desktop/Toolchain-cross-mingw32-linux.cmake][cmake file]]  [[file:~/Desktop/WDoc/Glory_Programming/JZEY_Practice/hello/src/CMakeLists.txt][CMakeLists.txt]]
+
+  - make windows dll used in CMakeLists.txt
+#+BEGIN_SRC
+# Allow the developer to select if Dynamic or Static libraries are built
+OPTION (BUILD_SHARED_LIBS "Build Shared Libraries" ON)
+# Set the LIB_TYPE variable to STATIC
+SET (LIB_TYPE STATIC)
+IF (BUILD_SHARED_LIBS)
+  # User wants to build Dynamic Libraries, so change the LIB_TYPE variable to CMake keyword 'SHARED'
+  SET (LIB_TYPE SHARED)
+ENDIF (BUILD_SHARED_LIBS)
+
+# Create a target for the library
+ADD_LIBRARY(MyLibrary ${LIB_TYPE} ../src/dllmain.cpp)
+ADD_EXECUTABLE(load ../src/LoadTest.cpp)
+#+END_SRC
+    
++ how to use cmake , and what's that
+  CMake是一个跨平台的安装(编译)工具,可以用简单的语句来描述所有平台的安装(编译过程)。他能够输出各种各样的makefile或者project文件,能测试编译器所支持的C++特性,类似UNIX下的automake。
+
+  - [[http://www.cmake.org/cmake/help/v2.8.8/cmake.html#module:GenerateExportHeader][cmake document]]
+
+  - make clean
+
+  - in-souce build & out-source build
+    
++ build cross-compile environment (linux host for windows)
+  + http://www.mingw.org/wiki/LinuxCrossMinGW
+
+  + http://osix.net/modules/article/?id=670 start windows programing use mingw
+
++ inline intel syntax asm in c build with gcc
+  1) 
+   #+BEGIN_SRC
+    __asm__
+        (
+            ".intel_syntax;"
+            "int 0x3;"
+         );
+
+   #+END_SRC
+
+   i586-mingw32msvc-gcc -masm=intel -o load.exe LoadTest.cpp
+  2) or you can add_definitions(-masm=intel) in cmake file or cmakelists.txt then cmake & make
+
++ intrestring items
+  - TlHelp32.h should be tlhelp32.h on linux crosscompile
+
+  - mingw32-w32api
+
+  - define _WIN32_IE 0x400 ?
+
+  - sptrinf use header file <cstdio>
+
+  - C++11 support in cmake file add_definitions(-std=gnu++0x)
+
+*** Dynamic-Link library 
+
++  [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms682596(v%3Dvs.85).aspx][msdn dynamic link libraries]] 
+
 
 ** Glory_VersionControl
 
@@ -141,6 +263,77 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+- Note taken on [2014-12-30 Tue 07:26] \\
+  irrespective
+  
+  美 [.ɪrɪ'spektɪv] 
+  英 [.ɪrɪ'spektɪv] 
+  
+  * adj.不顾[不考虑,不问](…)的
+  * 网络不顾的；不论；无关的
+- Note taken on [2014-12-30 Tue 07:22] \\
+  hoist
+  
+  美 [hɔɪst] 
+  英 [hɔɪst] 
+  
+  * v.吊起；提升；拉高
+  * n.起重机；吊车；(残疾人用)升降机
+  * 网络升起；被吊起来；被击晕的情况下被吊起
+- Note taken on [2014-12-30 Tue 07:02] \\
+  synonym
+  
+  美 ['sɪnənɪm] 
+  英 ['sɪnənɪm] 
+  
+  * n.同义词；【生】(同物)异名；〈口〉类似物；【生化】同义密码子
+  * 网络同义字；数据库中所有同义词；同物异名
+- Note taken on [2014-12-30 Tue 07:01] \\
+  dialect
+  
+  美 ['daɪə.lekt] 
+  英 ['daɪəlekt] 
+  
+  * n.方言；地方话；土话
+  * 网络土语；语调；语支
+- Note taken on [2014-12-30 Tue 06:57] \\
+  autobiographer
+  
+  美 [ɔtoba'ɪɒɡrəfɚ] 
+  英 [ɔ:təʊba'ɪɒɡrəfə] 
+  
+  * n.自传作者
+  * 网络自传作家；自传作家的
+- Note taken on [2014-12-30 Tue 06:55] \\
+  badge
+  
+  美 [bædʒ] 
+  英 [bædʒ] 
+  
+  * n.徽章；标记；象征
+  * abbr.〈美(=Base Air Defense Ground Environment)【空】基地防空地面警备系统
+  * 网络奖章；标志；小徽章
+- Note taken on [2014-12-30 Tue 05:45] \\
+  snoop
+  
+  美 [snʊp] 
+  英 [snuːp] 
+  
+  * v.窥探；偷窥
+  * n.窥视；打听别人秘密的人
+  * 网络探听；史努比；史奴比
+- Note taken on [2014-12-30 Tue 05:42] \\
+  synchronization
+  
+  美 [ˌsɪŋkrənaɪ'zeɪʃ(ə)n] 
+  英 [ˌsɪŋkrənaɪ'zeɪʃ(ə)n] 
+  
+  * n.同时；同时性；【物】同步；【影视】同期[步]录音
+  * 网络同步化；同步控制；同步性
+- Note taken on [2014-12-30 Tue 02:18] \\
+  discrete
+  * adj.分离的；互不相连的；各别的
+  * 网络离散的；不连续的；分立的
 - Note taken on [2014-12-29 Mon 00:40] \\
   squelch
   * n.压制；压碎；〈口〉压倒对方的议论[回答]；反驳得对方不再作声
@@ -154,3 +347,4 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
   instantiate
   * v.用具体例证说明
   * 网络实例化；具现化；例示
+    
