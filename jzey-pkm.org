@@ -51,10 +51,14 @@
 *** UAC Bypass Study
 
 **** reference URLS:
-+ http://www.greyhathacker.net/?p=796 
++ http://www.greyhathacker.net/?p=796
 
-
-
+*** Windows Services
+**** Windows Service Control Manager(SCM)
+**** icacls cacls
+**** wmic service list config  (HKML_SYSTEM_CurrentControlSet_Services)
+***** AccessChk tool
+**** Insecure Names Pipes Permissions
 *** Windows Graphic Drivers
 
 **** WDDM (windows display driver model)
@@ -148,6 +152,41 @@ via shared memory IPC.
   
 
 ** Glory_ProgramAnalysis
+
+*** pin
+
+**** compile pin tools on windows & linux || b32 & b64
++ windows
+  install cygwin , add cygwin to path, cd to pinroot/source/tools/    then make
+  - 32bits
+    if you use windows 32bits,there will not be any problems just use cygwin32 vsx86command prompt
+  - 64bits
+    if you want compile 64 bits pin tools , us cygwin64 vsx64command prompt cd to tools folder make
+    if you want compile 32 bits pin tools on x64 windows , us vsx86command prompt , then modify pinroot/source/tools/config/win.var TARGET ?= $(HOST_ARCH) this sentence to TARGET := ia32
+
+**** follow to chiled process and attach to pid
++ when use -pid ,it should just next with pin.exe
++ when use -follow-execv , dll should be full path
+
+**** some pin funcs
+
+***** CHILD_PROCESS_SetPinCommandLine
+
+**** PIN Project
+
+***** FunCap
+give a poc file or specified progress,extracted all the information in program run time.
+
++ all the functions executed (or in specified module)
++ function call routine , and caller relativity(which can draw graph in ida)
++ each func parameters type and value
++ all the symbols from pdb
++ support child process mode
+
+** Glory_CodeAnalysis
+
++ when reading source code , we should start at one entry or near entry big functional function
+  which we already know what it does, then the sub-funs will be more readable and understandable.
 
 ** Glory_Flash
 *** PCRE
@@ -263,6 +302,22 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+- Note taken on [2015-01-07 Wed 07:57] \\
+  granularity
+  
+  美 [grænjʊ'lærɪtɪ] 
+  英 [grænjʊ'lærɪtɪ] 
+  
+  * n.颗粒性
+  * 网络粒度；颗粒度；封锁粒度
+- Note taken on [2015-01-06 Tue 19:42] \\
+  dedicate
+  
+  美 
+  英 ['dedɪkeɪt] 
+  
+  * v.把…奉献给；（在书、音乐或作品的前部）题献词；为…举行奉献典礼
+  * 网络献身；致力；致力于
 - Note taken on [2014-12-30 Tue 07:26] \\
   irrespective
   
