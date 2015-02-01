@@ -10,6 +10,13 @@
 **** setup the rtmfp & pcre environment for bug hunting 2h
 
 
+*** 2015.2-2
+**** Read company-clang code && dig into company mode for details (4h)
+**** reverse a class in mshtml (3h)
+**** c && c++ socket programing (4h)
+**** brain excersize (1h)
+
+
 ** Glory_ideas 自律
 *** most important abilities
 + programing
@@ -197,6 +204,7 @@ via shared memory IPC.
 + -tui
 + info
 + break
+
 
 ** Glory_ProgramAnalysis
 
