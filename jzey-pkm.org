@@ -8,15 +8,33 @@
 + TlHelp32.h should be tlhelp32.h on linux crosscompile
 **** use linux & mingw & c write shellcode 2h
 **** setup the rtmfp & pcre environment for bug hunting 2h
+
+
+** Glory_ideas 自律
+*** most important abilities
++ programing
++ reverse engineering
++ debugging
++ code reading
++ experience ( deep understanding the platform of system or language)
+
+
 ** Glory_Android
 
+
 ** Glory_Browser
+
 
 ** Glory_Emacs
 **** 快捷键
 + zm  folder all
 + zo  jump back to  {
 + zh zl  move scree to left or right
++ gub guw
++ r e w
+
+
+** Glory_Vim
 
 ** Glory_WinKernel
 *** winobj.exe decription and usage
@@ -68,8 +86,12 @@
 
 *** todo items:
 + study windows internals
++ icalcs
+  http://technet.microsoft.com/en-us/library/cc753525.aspx
+
 
 ** Glory_WinFont
+
 
 ** Glory_IE
 *** IE Protect Mode Research
@@ -97,6 +119,14 @@
 
    + internet explorer have 5 predifined area
      - 1.internet 2.local intranet 3.trusted sites 4.restricted sites 5.my computer
+
+     - highed privildege area can convert to low priviledge area , like 5->2 , to execute a html locally and there is no script prompt.
+
+     - if the local html is LowIntergrity level , defaut ie treat it as internet area.  open it in sandboxed process...
+
+     - if local html is medium level , can trasfer it to intranet area by  execute it in intranet area , no EPM , no prompt.
+       <!-- saved from usr=(0016)http://localhost -->
+
 
    + can low right ie modify enviroment of current process or parent process?
 
@@ -130,7 +160,17 @@ via shared memory IPC.
 ***** Serveices
 ***** process functions which take effect on parent or other process
 + [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms684320%2528v%3Dvs.85%2529.aspx][process related apis]]
+*** Small tricks
++ open local file(my computer zone) to interzone && intranet zone
+ add <!-- saved from url=(0013)about:internet --> to top of html file , then you can execute js in local computer, but the childprocess is Low Intergrity Level.
+ above line is set to be internet zone ,  below is intranet zone
+ <!-- saved from url=(0014)about:internet -->
+ <!-- saved from usr=(0016)http://localhost -->
+*** WHEN CREATE A FILE IN %TEMP%LOW folder , the file's IL is low , then open it in iexplore.exe ,even it open locally , but the process is sandboxed 
+
+
 ** Glory_IOS
+
 
 ** Glory_Linux
 *** useful commands
@@ -150,6 +190,13 @@ via shared memory IPC.
   in zsh , type find then tab… so convinient.
 + apt-cache search
   
+*** GDB
+**** commnads
++ set args
++ bt
++ -tui
++ info
++ break
 
 ** Glory_ProgramAnalysis
 
@@ -181,12 +228,15 @@ give a poc file or specified progress,extracted all the information in program r
 + function call routine , and caller relativity(which can draw graph in ida)
 + each func parameters type and value
 + all the symbols from pdb
+  put the pdb file on pin folder and desktop , then pin can read that.
 + support child process mode
+
 
 ** Glory_CodeAnalysis
 
 + when reading source code , we should start at one entry or near entry big functional function
   which we already know what it does, then the sub-funs will be more readable and understandable.
+
 
 ** Glory_Flash
 *** PCRE
@@ -194,6 +244,21 @@ give a poc file or specified progress,extracted all the information in program r
 
 
 ** Glory_AdobeReader
+
+
+** Glory_Reverse
+*** reverse pattern
++ while
+  when you write the reverse code like this:
+  while(1)
+  {
+  if(somefunc())
+  return;
+  }
+  this may should be :
+  while(!somefunc())
+  {} 
+
 
 ** Glory_Programing
 
@@ -266,7 +331,10 @@ ADD_EXECUTABLE(load ../src/LoadTest.cpp)
 
 *** Dynamic-Link library 
 
-+  [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms682596(v%3Dvs.85).aspx][msdn dynamic link libraries]] 
++  [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms682596(v%3Dvs.85).aspx][msdn dynamic link libraries]]
+
+
+** Glory_penetration
 
 
 ** Glory_VersionControl
@@ -302,6 +370,15 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+- Note taken on [2015-01-07 Wed 20:07] \\
+  mnemonic
+  
+  美 [nɪ'mɑnɪk] 
+  英 [nɪ'mɒnɪk] 
+  
+  * adj.记忆的；记忆术的；增进记忆的
+  * n.帮助记忆的词句（或诗歌等）；助记符号
+  * 网络助记的；有助于记忆的；助记码
 - Note taken on [2015-01-07 Wed 07:57] \\
   granularity
   
