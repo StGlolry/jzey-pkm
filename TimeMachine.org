@@ -1,0 +1,20 @@
+1000h Hours Plan
+
+
+* Reading the books Nuonuo mentioned .(200h)
+
+* IE EPM Escape vulnerability(100h)
+
+* IE 2 Exploitable Memory Corryptions (100h) 
+
+* Flash 2 Exploitable Vulnerability(200h)
+
+* Windows Service Audit (50h)
+
+** 
+   
+* windows font vulnerability(150h)
+
+* windows graphic driver vulnerability(100)
+
+* office vulnerabiliry (100h)

@@ -10,20 +10,81 @@
 **** setup the rtmfp & pcre environment for bug hunting 2h
 
 
-*** 2015.2-2
+*** 2015.2.2
 **** Read company-clang code && dig into company mode for details (4h)
 **** reverse a class in mshtml (3h)
 **** c && c++ socket programing (4h)
 **** brain excersize (1h)
 
 
+*** 2015.2.4
+
+**** review a class in mshtml (CHTMLCtxStream)
+
+**** make google earth on linux work
+
+**** think about c++ programing
+
+**** kernel debug on linux
+
+**** reverse a pe file protected by vmp
+
+**** windows symbolic link (foler && register && files)
+
+**** read the article MJ post on blog.360.cn about Font
+
+**** read the pdf about all road lead to system depends on service
++ dir /a command
++ cacls icacls
++ wmic service list config
++ sc qc
+
+**** windows object management
+
+**** collect informations on github , twitter ,weibo
+
+
+*** 2015.2.5
++ vmp research
+  + stack-based virtual machine
+  + vmp handler
+  + VMP instrument classify
++ c++ thinking
++ windows font engine in win10 (MJ0011)
++ TreadStone
++ TRY TO ABUSE THE DISASSEBLER
++ linux wifi commandline
+  使用iwconfig命令：
+  搜索无线网 iwlist wlan0 scan
+  记下essid
+  连接无密码的无线网 iwconfig wlan0 essid ChinaNet　其中ChinaNet是搜索到的无线网essid
+  连接有密码的无线网 iwconfig wlan0 essid ChinaNet key xxxx　其中xxxx是密码
+  启用无线网卡 ifconfig wlan0 up
+  通过dhcp获取IP　dhclient wlan0　或 dhcpcd wlan0
+
+  
+*** 2015.2.6 (need more efficiency...)
++ brain and body excersize  (1h)
++ vmp research (2h)
++ review 1 class in mshtml
++ think about c++ programing
++ shellcode interact with host program
++ WINDOWS10 FONT ENGINE
++ WINDOWS10 CFG
+  
+
 ** Glory_ideas 自律
-*** most important abilities
+*** most important abilities for work
 + programing
 + reverse engineering
 + debugging
 + code reading
 + experience ( deep understanding the platform of system or language)
+
+  
+*** life
++ what do you really care ?
++ in those areas , you must do the best. for others , have fun.
 
 
 ** Glory_Android
@@ -42,6 +103,7 @@
 
 
 ** Glory_Vim
+
 
 ** Glory_WinKernel
 *** winobj.exe decription and usage
@@ -83,6 +145,7 @@
 **** icacls cacls
 **** wmic service list config  (HKML_SYSTEM_CurrentControlSet_Services)
 ***** AccessChk tool
+***** accesschk.exe -quvcw * > services.txt 
 **** Insecure Names Pipes Permissions
 *** Windows Graphic Drivers
 
@@ -95,7 +158,7 @@
 + study windows internals
 + icalcs
   http://technet.microsoft.com/en-us/library/cc753525.aspx
-
+  
 
 ** Glory_WinFont
 
@@ -172,7 +235,7 @@ via shared memory IPC.
  add <!-- saved from url=(0013)about:internet --> to top of html file , then you can execute js in local computer, but the childprocess is Low Intergrity Level.
  above line is set to be internet zone ,  below is intranet zone
  <!-- saved from url=(0014)about:internet -->
- <!-- saved from usr=(0016)http://localhost -->
+  <!-- saved from usr=(0016)http://localhost -->
 *** WHEN CREATE A FILE IN %TEMP%LOW folder , the file's IL is low , then open it in iexplore.exe ,even it open locally , but the process is sandboxed 
 
 
@@ -196,7 +259,24 @@ via shared memory IPC.
 
   in zsh , type find then tab… so convinient.
 + apt-cache search
++ !! extract last command . so sudo !! can execute last command as root
++ alsamixer
++ python -m SimpleHTTPServer
++ mount | column -t
++ man ascii
++ telnet towel.blinkenlights.nl
++ history | awk '{a[$2]++}END{for(i in a){print a[i] " " i}}' | sort -rn | head         : list the command you used most often
++ echo "You can simulate on-screen typing just like in the movies" | pv -qL 10
++ getconf LONG_BIT  : to see your computer is 32bits or 64
++ ps aux | sort -nk +4 | tail  : sort the top ten process by memory usage
++ while sleep 1;do tput sc;tput cup 0 $(($(tput cols)-29));date;tput rc;done &          : put a clock on the terminal corner
++ lsof -i   :  check the network connection in real time
++ ifconfig | convert label:@- ip.png    : save command output to image
++ sudo dd if=/dev/mem | cat | strings   : display all the strings in ram
++ ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'   : display subdirectories in tree form
++ du -s * | sort -n | tail   :  display ten biggest files in current directory 
   
+
 *** GDB
 **** commnads
 + set args
@@ -204,6 +284,11 @@ via shared memory IPC.
 + -tui
 + info
 + break
+
+
+*** Issues
++ googleearth problem
+  when installed googleearth , then exec ./googleearch ,  it failed in googleearth-bin not found .   then sudo apt-get install lsb-core   ,, problem solved.
 
 
 ** Glory_ProgramAnalysis
@@ -378,6 +463,26 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+- Note taken on [2015-02-09 Mon 15:32] \\
+  游刃有余
+  ITs capability.
+  Practice makes perfect
+  be quite capable of
+- Note taken on [2015-02-09 Mon 15:27] \\
+  处理己事，游刃有余，乃是智者。
+  he is wise that has wit enough for his own affairs.
+- Note taken on [2015-02-09 Mon 11:31] \\
+       ambiguous
+       adj.模棱两可的；含糊不清的
+- Note taken on [2015-02-06 Fri 16:01] \\
+  polymorphism
+  多形性；多态性
+- Note taken on [2015-02-06 Fri 15:52] \\
+  circumvent
+  vt.绕行；设法避开；围住
+- Note taken on [2015-02-06 Fri 14:52] \\
+  diagnostic
+  adj.诊断的；特征的
 - Note taken on [2015-01-07 Wed 20:07] \\
   mnemonic
   
