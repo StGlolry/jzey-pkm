@@ -222,6 +222,14 @@ via shared memory IPC.
 + ieframe!CDownloadManager::HandleDownloadMessage()
 **** Elevation Policy
 + check if some registry is dangerous to execute other commands like cmd and rundll32. 
+**** COM && DCOM
+***** Resources
+****** DCOM Description [[https://technet.microsoft.com/en-us/library/cc958799.aspx][link]]
+****** IUnknown Interface [[https://msdn.microsoft.com/en-us/library/windows/desktop/ms680509%2528v%3Dvs.85%2529.aspx][link]]
+****** << ESSENTIAL COM >>  <<Understanding ActiveX and OLE>>
+****** 简单地说，COM是一种跨应用和语言共享二进制代码的方法  [[http://baike.baidu.com/view/6923408.htm][Link]]
+***** UserBrokerObject
+****** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
 **** Archive Analysis
 ***** CVE-2014-6322
 **** Test Point
@@ -463,6 +471,12 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+- Note taken on [2015-03-06 Fri 11:44] \\
+  marshal
+  v.整顿；配置；汇集
+- Note taken on [2015-03-06 Fri 11:41] \\
+  distribution
+  n.分布；分发；分配；散布；销售量
 - Note taken on [2015-02-09 Mon 15:32] \\
   游刃有余
   ITs capability.
