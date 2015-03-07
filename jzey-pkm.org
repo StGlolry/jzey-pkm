@@ -242,6 +242,7 @@ via shared memory IPC.
 ****** IUnknown Interface [[https://msdn.microsoft.com/en-us/library/windows/desktop/ms680509%2528v%3Dvs.85%2529.aspx][link]]
 ****** << ESSENTIAL COM >>  <<Understanding ActiveX and OLE>>
 ****** 简单地说，COM是一种跨应用和语言共享二进制代码的方法  [[http://baike.baidu.com/view/6923408.htm][Link]]
+****** COM 一共有三种形式 ，进程内，本地，远程。后两种必须调度接口指针和函数参数。
 ***** UserBrokerObject
 ****** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
 **** Archive Analysis
