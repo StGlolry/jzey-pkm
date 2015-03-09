@@ -471,6 +471,9 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+- Note taken on [2015-03-09 Mon 10:38] \\
+  armory
+  n.军械库；兵工厂
 - Note taken on [2015-03-06 Fri 11:44] \\
   marshal
   v.整顿；配置；汇集
