@@ -251,6 +251,8 @@ via shared memory IPC.
 ****** COM 一共有三种形式 ，进程内，本地，远程。后两种必须调度接口指针和函数参数。
 ***** UserBrokerObject
 ****** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
+***** Steps:
+1. list all the interface and method sandbox process can refer .
 **** Archive Analysis
 ***** CVE-2014-6322
 **** Test Point
