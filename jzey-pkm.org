@@ -93,6 +93,14 @@ Smoking really hurt!!
 2. think about how to write the fuzz framework for com communication part. 
 
 
+
+*** 2015.3.9
+Smoking really hurt!!
+
+1. 逆向UserBrokerObject 类, 了解其工作原理及作用，并整理出和ie epm相关的com 对象。（12 p）
+2. 整理出20个com接口的调用方式，并写出fuzz框架。(6p)
+
+
 ** Glory_ideas 自律
 *** most important abilities for work
 + programing
