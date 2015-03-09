@@ -85,7 +85,7 @@ something about work and life:
 
 plans:
 1. write 2 com programs
-
+   
 
 ** Glory_ideas 自律
 *** most important abilities for work
@@ -486,11 +486,9 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
-<<<<<<< HEAD
 - Note taken on [2015-03-09 Mon 10:38] \\
-armory
+  armory
   n.军械库；兵工厂
-=======
 - Note taken on [2015-03-08 Sun 00:16] \\
   incident
   n.事变；事件；插曲
@@ -502,7 +500,6 @@ armory
 - Note taken on [2015-03-08 Sun 00:00] \\
   bulldoze
   v.（用推土机）推平某物；强迫；强力推动某物；毁坏；威胁
->>>>>>> 72bf46da5bb371c36165907739efab5cb3989318
 - Note taken on [2015-03-06 Fri 11:44] \\
   marshal
   v.整顿；配置；汇集
@@ -518,8 +515,8 @@ armory
   处理己事，游刃有余，乃是智者。
   he is wise that has wit enough for his own affairs.
 - Note taken on [2015-02-09 Mon 11:31] \\
-       ambiguous
-       adj.模棱两可的；含糊不清的
+  ambiguous
+  adj.模棱两可的；含糊不清的
 - Note taken on [2015-02-06 Fri 16:01] \\
   polymorphism
   多形性；多态性
