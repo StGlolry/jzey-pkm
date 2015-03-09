@@ -73,6 +73,20 @@
 + WINDOWS10 CFG
   
 
+
+*** 2015.3.7
+still smoking , that make my health bad , and in low spirit.
+core habbit can make infect to life
+
+something about work and life:
+1. use time plan to manage life . (10000h and 2h and 10m)
+2. positive study . ask yourself more and more until you can teach those things to others and make a presentation .
+3. don't miss any inspiration . verify them use your known and unknown skills and experience . 
+
+plans:
+1. write 2 com programs
+
+
 ** Glory_ideas 自律
 *** most important abilities for work
 + programing
@@ -228,6 +242,7 @@ via shared memory IPC.
 ****** IUnknown Interface [[https://msdn.microsoft.com/en-us/library/windows/desktop/ms680509%2528v%3Dvs.85%2529.aspx][link]]
 ****** << ESSENTIAL COM >>  <<Understanding ActiveX and OLE>>
 ****** 简单地说，COM是一种跨应用和语言共享二进制代码的方法  [[http://baike.baidu.com/view/6923408.htm][Link]]
+****** COM 一共有三种形式 ，进程内，本地，远程。后两种必须调度接口指针和函数参数。
 ***** UserBrokerObject
 ****** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
 **** Archive Analysis
@@ -244,7 +259,7 @@ via shared memory IPC.
  above line is set to be internet zone ,  below is intranet zone
  <!-- saved from url=(0014)about:internet -->
   <!-- saved from usr=(0016)http://localhost -->
-*** WHEN CREATE A FILE IN %TEMP%LOW folder , the file's IL is low , then open it in iexplore.exe ,even it open locally , but the process is sandboxed 
+**** WHEN CREATE A FILE IN %TEMP%LOW folder , the file's IL is low , then open it in iexplore.exe ,even it open locally , but the process is sandboxed 
 
 
 ** Glory_IOS
@@ -471,9 +486,23 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 *** English
 
 **** Vocabulary
+<<<<<<< HEAD
 - Note taken on [2015-03-09 Mon 10:38] \\
-  armory
+armory
   n.军械库；兵工厂
+=======
+- Note taken on [2015-03-08 Sun 00:16] \\
+  incident
+  n.事变；事件；插曲
+  adj.难免的；附带的
+- Note taken on [2015-03-08 Sun 00:15] \\
+  contract
+  n.合同；婚约；合约；契约
+  v.缩小；订合同；缩短；感染（疾病）；招致
+- Note taken on [2015-03-08 Sun 00:00] \\
+  bulldoze
+  v.（用推土机）推平某物；强迫；强力推动某物；毁坏；威胁
+>>>>>>> 72bf46da5bb371c36165907739efab5cb3989318
 - Note taken on [2015-03-06 Fri 11:44] \\
   marshal
   v.整顿；配置；汇集
