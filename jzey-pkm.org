@@ -87,6 +87,12 @@ plans:
 1. write 2 com programs
    
 
+*** 2015.3.8
+Smoking really hurt!!
+1. sort out all the com interfaces use by broker and sandbox for IE.
+2. think about how to write the fuzz framework for com communication part. 
+
+
 ** Glory_ideas 自律
 *** most important abilities for work
 + programing
@@ -479,6 +485,8 @@ view tracked files
 
 https://github.com/github/gitignore  a collection of git ignore files
 how to use git ignore https://help.github.com/articles/ignoring-files/
+
+when git repository conflict , use git mergetool to solve them
 
 
 ** Glory_ForeignLanguage
