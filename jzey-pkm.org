@@ -82,6 +82,7 @@ something about work and life:
 1. use time plan to manage life . (10000h and 2h and 10m)
 2. positive study . ask yourself more and more until you can teach those things to others and make a presentation .
 3. don't miss any inspiration . verify them use your known and unknown skills and experience . 
+4. don.t miss any question , that may be the door.
 
 plans:
 1. write 2 com programs
@@ -259,6 +260,8 @@ via shared memory IPC.
 ****** COM 一共有三种形式 ，进程内，本地，远程。后两种必须调度接口指针和函数参数。
 ***** UserBrokerObject
 ****** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
+******* CIEUserBrokerObject::BrokerCreateKnownObject 
+******* CIEUserBrokerObject::QueryInterface
 ***** Steps:
 1. list all the interface and method sandbox process can refer .
 **** Archive Analysis
