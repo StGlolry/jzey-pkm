@@ -102,6 +102,10 @@ Smoking really hurt!!
 2. 整理出20个com接口的调用方式，并写出fuzz框架。(6p)
 
 
+*** 2015.3.11
+每支烟减掉两个番茄。
+一个好的身体是多么重要的本钱。
+
 ** Glory_ideas 自律
 *** most important abilities for work
 + programing
