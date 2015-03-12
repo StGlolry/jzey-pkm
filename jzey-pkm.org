@@ -506,7 +506,13 @@ when git repository conflict , use git mergetool to solve them
 
 *** English
 
-**** Vocabulary
+**** Vocabulary 1:
+- Note taken on [2015-03-12 Thu 10:06] \\
+  skepticism 
+  n.怀疑论；skepticism怀疑态度；怀疑主义
+- Note taken on [2015-03-12 Thu 10:04] \\
+  analog
+  adj.模拟的；类比的
 - Note taken on [2015-03-09 Mon 10:38] \\
   armory
   n.军械库；兵工厂
@@ -657,3 +663,4 @@ when git repository conflict , use git mergetool to solve them
   * v.用具体例证说明
   * 网络实例化；具现化；例示
     
+**** Vocabulary 2:
