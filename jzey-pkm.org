@@ -106,7 +106,9 @@ Smoking really hurt!!
 每支烟减掉两个番茄。
 一个好的身体是多么重要的本钱。
 
+
 ** Glory_ideas 自律
+
 *** most important abilities for work
 + programing
 + reverse engineering
@@ -186,6 +188,41 @@ Smoking really hurt!!
 + http://blogs.ejb.cc/archives/7039/windows-display-driver-wddm-programming-1 WDDM PROGRAMING
 
 **** 
+
+*** windows内核情景分析
+
+*** windows interal
+**** system machanism
+***** items:
++ !pic   !apic   !ioapic
++ dt nt!_ktrap_frame
++ !idt
++ !pcr 0
+
++ x86 Pentium II and before , use 0x2e for system trap  and iret to return, higher than Pentium II use sysenter for system trap and sysexit to return.
+                                                                                        sometimes iret , when sigle-step flag set.    
+
++ x64 use syscall for system trap   ia64 use epc (Enter Priviledged Mode)
+
++ !idt 2e
++ rdmsr 176  (32bits)   rdmsr c0000082 (64bits)
++ KiSystemService is a dispatcher for system service
+
+***** ObjectManager
+****** windows has 3 kinds of objects : executive object  kernel object  USER/GDI object
+****** kd > !handle 0 7 62c     : this command display full handle details about process 0x62c   
+****** windows internal part1   page 183   shows how to searching for open files with KD.
+****** reserve object
+***** Tracing & Debugging
++ glags : loader snap
+***** KPP (Patch Guard)
+***** HotPatch
+**** I/O system
+***** items:
++ IRP  : I/O Request Packet  FAST I/O doesn't use IRPs
++ !object /Devices
++ !drvobj
++ !devobj
 
 *** todo items:
 + study windows internals
@@ -668,3 +705,52 @@ when git repository conflict , use git mergetool to solve them
   * 网络实例化；具现化；例示
     
 **** Vocabulary 2:
+- Note taken on [2015-03-16 Mon 12:50] \\
+  volatile
+  adj.不稳定的；反复无常的；易挥发的
+  n.挥发物
+- Note taken on [2015-03-16 Mon 12:00] \\
+  legitimate
+  adj.合法的；世袭的；婚生的；正当的；合理的
+  vt.使合法；授权；宣布 ... 为合法
+- Note taken on [2015-03-16 Mon 11:56] \\
+  conjunction
+  n.结合；关联；连词；(事件等的)同时发生
+- Note taken on [2015-03-16 Mon 10:02] \\
+  opaque
+  adj.不透明的；难懂的
+- Note taken on [2015-03-16 Mon 10:01] \\
+  retention
+  n.保留物；保存；保持(力)；记忆力
+- Note taken on [2015-03-16 Mon 09:59] \\
+  scrutinize
+  v.仔细检查；细看
+- Note taken on [2015-03-13 Fri 18:14] \\
+  wrapper
+  n.(饺子)皮；包装用品
+- Note taken on [2015-03-13 Fri 16:40] \\
+  preempt
+  v.以优先购买权获得；先占；(桥牌中)先发制人地叫牌；优先；取代
+- Note taken on [2015-03-13 Fri 16:33] \\
+  uniprocessor
+  n.单处理机(单机)
+- Note taken on [2015-03-13 Fri 16:09] \\
+  asynchronous
+  adj.异步的
+- Note taken on [2015-03-13 Fri 16:08] \\
+  defered
+  adj.延期的；延迟的
+- Note taken on [2015-03-13 Fri 12:30] \\
+  adhere
+  vi.遵守；坚持；粘附
+- Note taken on [2015-03-13 Fri 12:15] \\
+  solder
+  n.焊接剂；接合物
+  v.焊接
+- Note taken on [2015-03-13 Fri 12:13] \\
+  insulate
+  vt.使绝缘；隔离
+- Note taken on [2015-03-13 Fri 11:57] \\
+  uniform
+  n.制服
+  adj.一致的；统一的
