@@ -214,7 +214,12 @@ Smoking really hurt!!
 ****** windows internal part1   page 183   shows how to searching for open files with KD.
 ****** reserve object
 ***** Tracing & Debugging
-+ glags : loader snap
++ gflags : loader snap
++ kd >!process 0 0 (list all the process)
++ kd >.process xxxxxxxx    (switch to the specified process)        kd >!process xxxxxxxx   (show details about specified process)
++ kd >dt nt!_EPROCESS xxxxxxxx 
++ !peb & dt ntdll!_PEB @$peb
++ !process 0 7
 ***** KPP (Patch Guard)
 ***** HotPatch
 **** I/O system
