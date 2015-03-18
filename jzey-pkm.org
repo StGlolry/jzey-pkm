@@ -175,6 +175,7 @@ Smoking really hurt!!
 **** reference URLS:
 + http://www.greyhathacker.net/?p=796
 
+
 *** Windows Services
 **** Windows Service Control Manager(SCM)
 **** icacls cacls
@@ -182,6 +183,7 @@ Smoking really hurt!!
 ***** AccessChk tool
 ***** accesschk.exe -quvcw * > services.txt 
 **** Insecure Names Pipes Permissions
+
 *** Windows Graphic Drivers
 
 **** WDDM (windows display driver model)
@@ -189,7 +191,9 @@ Smoking really hurt!!
 
 **** 
 
+
 *** windows内核情景分析
+
 
 *** windows interal
 **** system machanism
@@ -228,6 +232,22 @@ Smoking really hurt!!
 + !object /Devices
 + !drvobj
 + !devobj
+
+
+*** windbg commands list
+**** Kernel Mode:
++ .reboot
++ !dh imageheader
++ !dml_proc xxxxxxxx
++ !gflag +ksl   sxe ld:xxx.exe   break when a process start  
+
+
+*** Kernel Functions Debug & Research
+**** NtCallbackReturn
+- References:
+  + http://www.codejury.com/user-mode-callbacks-in-windows/
+  + http://j00ru.vexillium.org/?p=614 
+
 
 *** todo items:
 + study windows internals
@@ -710,6 +730,17 @@ when git repository conflict , use git mergetool to solve them
   * 网络实例化；具现化；例示
     
 **** Vocabulary 2:
+- Note taken on [2015-03-18 Wed 13:39] \\
+  auxiliary
+  n.助动词；辅助物；帮助者
+  adj.辅助的；附加的
+- Note taken on [2015-03-18 Wed 13:38] \\
+  full-fledged
+  adj.羽毛丰满的；成熟的；完全有资格的
+  =fully-fledged(英).
+- Note taken on [2015-03-18 Wed 13:17] \\
+  facilitate
+  vt.促进；帮助；使 ... 容易
 - Note taken on [2015-03-16 Mon 12:50] \\
   volatile
   adj.不稳定的；反复无常的；易挥发的
