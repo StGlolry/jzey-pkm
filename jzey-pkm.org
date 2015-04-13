@@ -1,111 +1,6 @@
 
 
 
-** Glory_Daily
-*** 2015.1.5
-**** keep research mingw crosscompile 2h
-***** items
-+ TlHelp32.h should be tlhelp32.h on linux crosscompile
-**** use linux & mingw & c write shellcode 2h
-**** setup the rtmfp & pcre environment for bug hunting 2h
-
-
-*** 2015.2.2
-**** Read company-clang code && dig into company mode for details (4h)
-**** reverse a class in mshtml (3h)
-**** c && c++ socket programing (4h)
-**** brain excersize (1h)
-
-
-*** 2015.2.4
-
-**** review a class in mshtml (CHTMLCtxStream)
-
-**** make google earth on linux work
-
-**** think about c++ programing
-
-**** kernel debug on linux
-
-**** reverse a pe file protected by vmp
-
-**** windows symbolic link (foler && register && files)
-
-**** read the article MJ post on blog.360.cn about Font
-
-**** read the pdf about all road lead to system depends on service
-+ dir /a command
-+ cacls icacls
-+ wmic service list config
-+ sc qc
-
-**** windows object management
-
-**** collect informations on github , twitter ,weibo
-
-
-*** 2015.2.5
-+ vmp research
-  + stack-based virtual machine
-  + vmp handler
-  + VMP instrument classify
-+ c++ thinking
-+ windows font engine in win10 (MJ0011)
-+ TreadStone
-+ TRY TO ABUSE THE DISASSEBLER
-+ linux wifi commandline
-  使用iwconfig命令：
-  搜索无线网 iwlist wlan0 scan
-  记下essid
-  连接无密码的无线网 iwconfig wlan0 essid ChinaNet　其中ChinaNet是搜索到的无线网essid
-  连接有密码的无线网 iwconfig wlan0 essid ChinaNet key xxxx　其中xxxx是密码
-  启用无线网卡 ifconfig wlan0 up
-  通过dhcp获取IP　dhclient wlan0　或 dhcpcd wlan0
-
-  
-*** 2015.2.6 (need more efficiency...)
-+ brain and body excersize  (1h)
-+ vmp research (2h)
-+ review 1 class in mshtml
-+ think about c++ programing
-+ shellcode interact with host program
-+ WINDOWS10 FONT ENGINE
-+ WINDOWS10 CFG
-  
-
-
-*** 2015.3.7
-still smoking , that make my health bad , and in low spirit.
-core habbit can make infect to life
-
-something about work and life:
-1. use time plan to manage life . (10000h and 2h and 10m)
-2. positive study . ask yourself more and more until you can teach those things to others and make a presentation .
-3. don't miss any inspiration . verify them use your known and unknown skills and experience . 
-4. don.t miss any question , that may be the door.
-
-plans:
-1. write 2 com programs
-   
-
-*** 2015.3.8
-Smoking really hurt!!
-1. sort out all the com interfaces use by broker and sandbox for IE.
-2. think about how to write the fuzz framework for com communication part. 
-
-
-
-*** 2015.3.9
-Smoking really hurt!!
-
-1. 逆向UserBrokerObject 类, 了解其工作原理及作用，并整理出和ie epm相关的com 对象。（12 p）
-2. 整理出20个com接口的调用方式，并写出fuzz框架。(6p)
-
-
-*** 2015.3.11
-每支烟减掉两个番茄。
-一个好的身体是多么重要的本钱。
-
 
 ** Glory_ideas 自律
 
@@ -136,13 +31,131 @@ Smoking really hurt!!
 + gub guw
 + r e w
 
+**** hi-lock-mode
++ C-x w p 
++ C-x w r
+
+**** C-u num C-c C-x b   
+  move a subtree to a indirect buffer with prefix number
+
+**** Org-mode presentations
+  [[http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][non beamer presentations]]
+  
+  1) Org-tree-slide
+  2) html5presentation
+     ~/.emacs.d/site-lisp/org-html5presentation.el
+  3) 
+
+**** Latex & pdf export
+ 
+ + sudo apt-get install texlive-full
+ + sudo apt-get install texlive-latex-base(use one of them)
+ + sudo apt-get install texlive-latex-extra
+   ;; Install Packages:
+   ;; + texlive-all  
+   ;; + texlive-xetex
+   ;; + ttf-sil-gentium
+   ;; + ttf-sil-gentium-basic
+   ;; + ttf-sil-charis
+   ;; + ttf-dejav
+   ;; -----------------------------------------------------------------------------
+
+  AND SOMEOTHER THINGS IN ~/.custom.el
+
+**** org-mode upgrade
+  git clone the official org-mode
+  (add-to-list 'load-path "~/org-mode/contrib/lisp")
+  (add-to-list 'load-path "~/org-mode/lisp")
+  (require 'org-install)
+  (require 'org-track)
+
+  then 
+  M-x customize-variable RET org-track-directory RET
+  M-x org-track-update RET
+
 
 ** Glory_Vim
 
 
 ** Glory_WinKernel
-*** winobj.exe decription and usage
-**** Description
+
+
+*** Reference
+**** (BOOK)windows内核情景分析
+
+
+**** (BOOK)windows graphic programing
+***** GDI/DirectDraw internal structures
+
+
+**** (BOOK)windows interal 
+***** system machanism 
+****** items: 
++ !pic   !apic   !ioapic 
++ dt nt!_ktrap_frame 
++ !idt 
++ !pcr 0 
++ x86 Pentium II and before , use 0x2e for system trap  and iret to return, higher than Pentium II use sysenter for system trap and sysexit to return. sometimes iret , when sigle-step flag set. 
++ x64 use syscall for system trap   ia64 use epc (Enter Priviledged Mode) 
++ !idt 2e 
++ rdmsr 176  (32bits)   rdmsr c0000082 (64bits) 
++ KiSystemService is a dispatcher for system service 
+****** ObjectManager 
+******* windows has 3 kinds of objects : executive object  kernel object  USER/GDI object 
+******* kd > !handle 0 7 62c     : this command display full handle details about process 0x62c 
+******* windows internal part1   page 183   shows how to searching for open files with KD. 
+******* reserve object 
+****** Tracing & Debugging 
++ gflags : loader snap 
++ kd >!process 0 0 (list all the process) 
++ kd >.process xxxxxxxx    (switch to the specified process)        kd >!process xxxxxxxx   (show details about specified process) 
++ kd >dt nt!_EPROCESS xxxxxxxx 
++ !peb & dt ntdll!_PEB @$peb + !process 0 7 
+****** KPP (Patch Guard) 
+****** HotPatch 
+***** I/O system 
+****** items: 
++ IRP  : I/O Request Packet  FAST I/O doesn't use IRPs 
++ !object /Devices 
++ !drvobj 
++ !devobj 
+
+***** Memory Management
++ Memory management components (210 in pdf , 188 in book)
+  - a set of executive system services to allcating , deallocating and manage virtual memory.
+  - translation-not-valid & access fault trap handler
+  - six kernel-mode thread in System process , six top-level routines
+  - 
+
++ copy-on-write
+  [[http://en.wikipedia.org/wiki/Copy-on-write][wiki]] 
+****** Services provide by memory management
++ small page & big page
++ reserve & commited page
+****** System Memory Pools
+
+
+**** (PDF) win8 heap internals
++ author & date: Chris Valasek  & Tarjei Mandt   
+
+***** Note:
++: www.laboskopia.com  Symbol Type Viewer
++: 
+
+
+
+
+
+***** Questions:
+
+
+
+**** Windows via c/c++
+
+*** Research
+
+**** winobj.exe decription and usage
+***** Description
    Deep inside Windows lies a subsystem called the Object Manager 
    that is responsible for tracking every resource in the system.
    “Resources” can be files, Registry entries, hardware devices, running processes 
@@ -159,7 +172,7 @@ Smoking really hurt!!
    - Creating duplicate handles
    - Closing handles to objects
  
-**** Q A.
+***** Q A.
     + Object Manager Namespace
       - http://www.nynaeve.net/?p=61
       - http://windowsitpro.com/systems-management/inside-nts-object-manager
@@ -170,89 +183,369 @@ Smoking really hurt!!
       - http://blogs.ejb.cc/archives/7137/windows-internal-object-and-object-manager
 
    
-*** UAC Bypass Study
+**** UAC Bypass Study
 
-**** reference URLS:
+***** reference URLS:
 + http://www.greyhathacker.net/?p=796
 
+  
+**** Windows Services
+***** Windows Service Control Manager(SCM)
+***** icacls cacls
+***** wmic service list config  (HKML_SYSTEM_CurrentControlSet_Services)
+****** AccessChk tool
+****** accesschk.exe -quvcw * > services.txt 
+***** Insecure Names Pipes Permissions
 
-*** Windows Services
-**** Windows Service Control Manager(SCM)
-**** icacls cacls
-**** wmic service list config  (HKML_SYSTEM_CurrentControlSet_Services)
-***** AccessChk tool
-***** accesschk.exe -quvcw * > services.txt 
-**** Insecure Names Pipes Permissions
 
-*** Windows Graphic Drivers
+**** Windows Graphic Drivers
 
-**** WDDM (windows display driver model)
+***** WDDM (windows display driver model)
 + http://blogs.ejb.cc/archives/7039/windows-display-driver-wddm-programming-1 WDDM PROGRAMING
 
-**** 
+***** 
 
 
-*** windows内核情景分析
-
-
-*** windows interal
-**** system machanism
-***** items:
-+ !pic   !apic   !ioapic
-+ dt nt!_ktrap_frame
-+ !idt
-+ !pcr 0
-
-+ x86 Pentium II and before , use 0x2e for system trap  and iret to return, higher than Pentium II use sysenter for system trap and sysexit to return.
-                                                                                        sometimes iret , when sigle-step flag set.    
-
-+ x64 use syscall for system trap   ia64 use epc (Enter Priviledged Mode)
-
-+ !idt 2e
-+ rdmsr 176  (32bits)   rdmsr c0000082 (64bits)
-+ KiSystemService is a dispatcher for system service
-
-***** ObjectManager
-****** windows has 3 kinds of objects : executive object  kernel object  USER/GDI object
-****** kd > !handle 0 7 62c     : this command display full handle details about process 0x62c   
-****** windows internal part1   page 183   shows how to searching for open files with KD.
-****** reserve object
-***** Tracing & Debugging
-+ gflags : loader snap
-+ kd >!process 0 0 (list all the process)
-+ kd >.process xxxxxxxx    (switch to the specified process)        kd >!process xxxxxxxx   (show details about specified process)
-+ kd >dt nt!_EPROCESS xxxxxxxx 
-+ !peb & dt ntdll!_PEB @$peb
-+ !process 0 7
-***** KPP (Patch Guard)
-***** HotPatch
-**** I/O system
-***** items:
-+ IRP  : I/O Request Packet  FAST I/O doesn't use IRPs
-+ !object /Devices
-+ !drvobj
-+ !devobj
-
-
-*** windbg commands list
-**** Kernel Mode:
+**** windbg commands list
+***** Kernel Mode:
 + .reboot
 + !dh imageheader
 + !dml_proc xxxxxxxx
-+ !gflag +ksl   sxe ld:xxx.exe   break when a process start  
++ !gflag +ksl   sxe ld:xxx.exe   break when a process start
++ !thread
++ !dt win32k!_w32thread
++ 
 
 
-*** Kernel Functions Debug & Research
-**** NtCallbackReturn
+**** Kernel Functions Debug & Research
+***** NtCallbackReturn
 - References:
   + http://www.codejury.com/user-mode-callbacks-in-windows/
   + http://j00ru.vexillium.org/?p=614 
+
+
+**** windows important structures
+
+dt _ethread
++  _ETHREAD
+
+typedef struct _ETHREAD
+{
+KTHREAD Tcb;
+LARGE_INTEGER CreateTime;
+union
+{
+LARGE_INTEGER ExitTime;
+LIST_ENTRY KeyedWaitChain;
+};
+union
+{
+LONG ExitStatus;
+PVOID OfsChain;
+};
+union
+{
+LIST_ENTRY PostBlockList;
+struct
+{
+PVOID ForwardLinkShadow;
+PVOID StartAddress;
+};
+};
+union
+{
+PTERMINATION_PORT TerminationPort;
+PETHREAD ReaperLink;
+PVOID KeyedWaitValue;
+PVOID Win32StartParameter;
+};
+ULONG ActiveTimerListLock;
+LIST_ENTRY ActiveTimerListHead;
+CLIENT_ID Cid;
+union
+{
+KSEMAPHORE KeyedWaitSemaphore;
+KSEMAPHORE AlpcWaitSemaphore;
+};
+PS_CLIENT_SECURITY_CONTEXT ClientSecurity;
+LIST_ENTRY IrpList;
+ULONG TopLevelIrp;
+PDEVICE_OBJECT DeviceToVerify;
+_PSP_RATE_APC * RateControlApc;
+PVOID Win32StartAddress;
+PVOID SparePtr0;
+LIST_ENTRY ThreadListEntry;
+EX_RUNDOWN_REF RundownProtect;
+EX_PUSH_LOCK ThreadLock;
+ULONG ReadClusterSize;
+LONG MmLockOrdering;
+ULONG CrossThreadFlags;
+ULONG Terminated: 1;
+ULONG ThreadInserted: 1;
+ULONG HideFromDebugger: 1;
+ULONG ActiveImpersonationInfo: 1;
+ULONG SystemThread: 1;
+ULONG HardErrorsAreDisabled: 1;
+ULONG BreakOnTermination: 1;
+ULONG SkipCreationMsg: 1;
+ULONG SkipTerminationMsg: 1;
+ULONG CopyTokenOnOpen: 1;
+ULONG ThreadIoPriority: 3;
+ULONG ThreadPagePriority: 3;
+ULONG RundownFail: 1;
+ULONG SameThreadPassiveFlags;
+ULONG ActiveExWorker: 1;
+ULONG ExWorkerCanWaitUser: 1;
+ULONG MemoryMaker: 1;
+ULONG ClonedThread: 1;
+ULONG KeyedEventInUse: 1;
+ULONG RateApcState: 2;
+ULONG SelfTerminate: 1;
+ULONG SameThreadApcFlags;
+ULONG Spare: 1;
+ULONG StartAddressInvalid: 1;
+ULONG EtwPageFaultCalloutActive: 1;
+ULONG OwnsProcessWorkingSetExclusive: 1;
+ULONG OwnsProcessWorkingSetShared: 1;
+ULONG OwnsSystemWorkingSetExclusive: 1;
+ULONG OwnsSystemWorkingSetShared: 1;
+ULONG OwnsSessionWorkingSetExclusive: 1;
+ULONG OwnsSessionWorkingSetShared: 1;
+ULONG OwnsProcessAddressSpaceExclusive: 1;
+ULONG OwnsProcessAddressSpaceShared: 1;
+ULONG SuppressSymbolLoad: 1;
+ULONG Prefetching: 1;
+ULONG OwnsDynamicMemoryShared: 1;
+ULONG OwnsChangeControlAreaExclusive: 1;
+ULONG OwnsChangeControlAreaShared: 1;
+ULONG PriorityRegionActive: 4;
+UCHAR CacheManagerActive;
+UCHAR DisablePageFaultClustering;
+UCHAR ActiveFaultCount;
+ULONG AlpcMessageId;
+union
+{
+PVOID AlpcMessage;
+ULONG AlpcReceiveAttributeSet;
+};
+LIST_ENTRY AlpcWaitListEntry;
+ULONG CacheManagerCount;
+} ETHREAD, *PETHREAD; 
+
+
+**** somefuncitons
++ PsGetCurrentThreadWin32Thread
+  return a ethread struct and ethread struct is start with kthread
+  both of them can be displayed by windbg
+  dt _ETHREAD
+  dt _KTHREAD
+  
+
+*** Vulhunt
+
+**** some expirence.
+
++ framework analysis
++ each function analysis
+  - arguments (1. passed from where  2. type 3.effection on the function body)
+  - function body (1. effecitions on memory  2. crash point analysis  )
+  - return value
+
+  !!!!  when performing stage 1 function analysis , must construct the poc to archive target function
++ Fuzz stratedge
+  - write fuzzer after target learning & phase 1 function analysis
+    
+**** Gdi32 Vulhunt
+
+***** History
++ MS15-023  [[https://technet.microsoft.com/library/security/ms15-023][mslink]]
++ MS15-010  [[https://technet.microsoft.com/library/security/ms15-010][mslink]]   [[http://www.cnnvd.org.cn/vulnerability/show/cv_id/2015020240][certlink]]
++ MS14-058  [[https://technet.microsoft.com/library/security/ms14-058][mslink]]   [[http://www.cnnvd.org.cn/vulnerability/show/cv_id/2014100308][certlink]]
++ 
+  
+
+***** Fuzz project
+
+****** Inspirations & unsolved questions
++ gdi32.dll & win32k.sys overview
++ focus on object ?
++ what should I do when review the module code for fuzz preparation?
+  
+
+***** Code Review
+gdi32 has about 728 export functions
+
+****** Phase 1 (50 functions)
+******* NtGdiOpenDCW
+******** 1
+********* arguments & ret value
++ 
+********* caller
++ CreateDCW
++ bCreateDCW
++ hdcCreateDCW
++ NtGdiOpenDCW
+  
+********* 
+
+******** Referenced funtions & structures:
++ CreateDCW() 
+  https://msdn.microsoft.com/en-us/library/windows/desktop/dd183490%28v=vs.85%29.aspx
+  The CreateDC function creates a device context (DC) for a device using the specified name.
++ DEVMODE
+  https://msdn.microsoft.com/en-us/library/windows/desktop/dd183565(v=vs.85).aspx
++ hdcCreateDCW
+
++ pGdiSharedHandleTable 
+
+******* hdcCreateDCW(x,x,x,x,x)
+******** 1
+********* arguments & ret value
++ a1 : PCWSTR SourceString
+********* caller
++ CreateDCW
++ bCreateDCW
++ hdcCreateDCW
+********* describe
+
+******* NtGdiDdCreateSurface
+[[https://msdn.microsoft.com/en-us/library/ms648489(v%3Dvs.85).aspx][msdn]]
+******** 1
+********* arguments & return value
+********* caller
+********* action
+Attaches a surface to another surface.
+******** reference functions & structures
++ DD_DIRECTDRAW_GLOBAL
+  [[https://msdn.microsoft.com/en-us/library/ff550586(v%3Dvs.85).aspx][MSDN]]
++ DDSURFACEDESC 
+  [[https://msdn.microsoft.com/en-us/library/ff550339(v%3Dvs.85).aspx][MSDN]]
++ DdCreateSurface
+  [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff549263%2528v%3Dvs.85%2529.aspx][MSDN]]
+  The DdCreateSurface callback function creates a DirectDraw surface.
+
+******* NtGdiDdCreateSurfaceObject
+******* NtGdiBRUSHOBJ_DeleteRbrush
+******** 1
+********* caller : gdiprinterthunk
+******** Reference functions & structures
++ BRUSHOBJ_pvAllocRbrush 
+  [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff538263%2528v%3Dvs.85%2529.aspx][MSDN]]
+  The BRUSHOBJ_pvAllocRbrush function allocates memory for the driver's realization of a specified brush.
++ DrvRealizeBrush
+  [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff556273(v%3Dvs.85).aspx][MSDN]]
+  The DrvRealizeBrush function requests that the driver realize a specified brush for a specified surface.
++ DrvEnablePDEV
+  [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff556211(v%3Dvs.85).aspx][MSDN]]
+  The DrvEnablePDEV function returns a description of the physical device's characteristics to GDI.
+******** Ins & Qus
++ who called functions like this? func like this may always called in kernel drivers
+  but gdi32 export this func so some user mode program can call this func in normal way not directly. (check the source..)
+  Answer: when you find a func in a all , it's not a export func and can't find the reference to this func , it may be a virtual func or a callback func table.
+
+******* NtGdiBeginGdiRendering
+******* NtGdiBeginPath
+******* NtGdiBitBlt
+******** 1
+********* 
+******** Reference functions & structures:
++ BitBlt
+  [[https://msdn.microsoft.com/en-us/library/windows/desktop/dd183370(v%3Dvs.85).aspx][msdn]]
+******* NtGdiCLIPOBJ_cEnumStart
+******* NtGdiCLIPOBJ_ppoGetPath
+******* NtGdiCancelDC
+******** 1
+******** referenced functions & structures
++ CancelDC
+  [[https://msdn.microsoft.com/en-us/library/windows/desktop/dd183399(v%3Dvs.85).aspx][msdn]]
+******* XLATEOBJ_piVector
+******** 1
+[[https://msdn.microsoft.com/en-us/library/windows/hardware/ff570644(v%3Dvs.85).aspx][XLATEOBJ_piVector on msdn]]
+
+The XLATEOBJ_piVector function retrieves a translation vector that the driver can use to translate source indices to destination indices.
+
+********* Arguments & return value
++ XLATEOBJ *pxlo
++ The return value is a pointer to a vector of translation entries if the function is successful. Otherwise, it is null, and an error code is logged.
+
+******** Reference functions & structures
+
+******* NtGdiXLATEOBJ_iXlate
+******** 1
+The XLATEOBJ_iXlate function translates a color index of the source palette to the closest index in the destination palette.
+
+********* Arguments & return value
++ XLATEOBJ *pxlo,
++ ULONG    iColor
+
+[[https://msdn.microsoft.com/en-us/library/windows/hardware/ff570634(v%3Dvs.85).aspx][XLATEOBJ on msdn]]
+typedef struct _XLATEOBJ {
+  ULONG  iUniq;
+  FLONG  flXlate;
+  USHORT iSrcType;
+  USHORT iDstType;
+  ULONG  cEntries;
+  ULONG  *pulXlate;
+} XLATEOBJ;
+
++ The return value is an index into the destination palette if the function is successful. If the function fails, -1 is returned.
+
+********* Caller
+********* 
+******** Referenced functions & structures
+******* TextOutW
+******** 1
+******** Reference functions & structures
++ NtGdiExtTextOutW
+******** ins & qus
++ hdc & 0x7F0000 means what?
+******* BeginPath(HDC hdc)
+******** 1
+
+[[https://msdn.microsoft.com/en-us/library/windows/desktop/dd183363(v%3Dvs.85).aspx][beginpath on msdn]] 
+
+The BeginPath function opens a path bracket in the specified device context.
+
+********* Arguments & ret values
+
+********* Caller
+
+******** Referenced functions & structures
+******* AbortPath(HDC hdc)
+******* AbortDoc(HDC hdc)
+******* NtGdiCLIPOBJ_ppoGetPath
+******* CreateColorSpaceA
+******* CreateDIBPatternBrush 77B81097 1063
+******* CreatePalette 77B6B1B0 1085
+******* CreatePatternBrush 77B6AD11 1086
+******* NtGdiDdDDIWaitForVerticalBlankEvent
+******* NtGdiDDCCISetVCPFeature
+******* NtGdiSfmGetNotificationTokens
+******* EndPath(HDC hdc)
+******* FillPath(HDC hdc)
+******* GdiProcessSetup()
+******* StartDocA(HDC hdc, const DOCINFOA *lpdi)
+******* SetPixel(HDC hdc, int x, int y, COLORREF color)
+******* SetLayout(HDC hdc, DWORD l)
+******* SetDIBitsToDevice(HDC hdc, int xDest, int yDest, DWORD w, DWORD h, int xSrc, int ySrc, UINT StartScan, UINT cLines, const void *lpvBits, const BITMAPINFO *lpbmi, UINT ColorUse)
+******* SelectObject(HDC hdc, HGDIOBJ h)
+******* SelectClipPath(HDC hdc, int mode)
+******* GetWindowExtEx(HDC hdc, LPSIZE lpsize)
+******* GdiGetPageHandle(size_t Size, int a2, int a3)
+******* NtGdiEngTextOut
+******* NtGdiEngDeleteClip(x)
+******* EndPage(HDC hdc)
+******* NtGdiDdDDICreateOverlay(x)
+
+
 
 
 *** todo items:
 + study windows internals
 + icalcs
   http://technet.microsoft.com/en-us/library/cc753525.aspx
++ what's the diffrentce bettewn PUNICODE_STRING & PCWSTR
++ how to solve the problem when hunt vul , but can't understand the presudo c code meaning?
   
 
 ** Glory_WinFont
@@ -338,6 +631,12 @@ via shared memory IPC.
 ***** Serveices
 ***** process functions which take effect on parent or other process
 + [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms684320%2528v%3Dvs.85%2529.aspx][process related apis]]
+*** IE Reverse 
+**** iertutil.dll
++ Reverse for : 
++ version: 11.0.9600.17631
+
+***** 
 *** Small tricks
 + open local file(my computer zone) to interzone && intranet zone
  add <!-- saved from url=(0013)about:internet --> to top of html file , then you can execute js in local computer, but the childprocess is Low Intergrity Level.
@@ -730,6 +1029,43 @@ when git repository conflict , use git mergetool to solve them
   * 网络实例化；具现化；例示
     
 **** Vocabulary 2:
+- Note taken on [2015-04-01 Wed 13:54] \\
+  bracket
+  n.档次；括号；支架
+  vt.支撑；放在括号内；归入一类
+- Note taken on [2015-04-01 Wed 13:04] \\
+  indices
+  n.目录；指数；符号；指示器；参见号
+  名词index的复数。.
+- Note taken on [2015-03-31 Tue 17:54] \\
+  stem
+  n.柄；茎；干；船首
+  vi.起源于
+  vt.抽去 ... 的梗；给 ... 装柄；逆 ... 而行；阻止，遏制
+- Note taken on [2015-03-31 Tue 17:44] \\
+  conserve
+  n.蜜饯；果酱
+  v.保存；保持；节省；用糖保存
+- Note taken on [2015-03-31 Tue 17:10] \\
+  distinction
+  n.荣誉；差别；优秀；对比；区分
+- Note taken on [2015-03-31 Tue 17:08] \\
+  nomenclature
+  n.命名法；命名；术语
+- Note taken on [2015-03-26 Thu 17:56] \\
+  entropy
+  n.熵
+  n.平均信息量
+  n.一致性；统一性
+- Note taken on [2015-03-26 Thu 16:27] \\
+  tactics
+  n.策略；战术
+- Note taken on [2015-03-26 Thu 16:27] \\
+  divulge
+  v.泄露；暴露
+- Note taken on [2015-03-26 Thu 16:24] \\
+  intricate
+  adj.复杂的；难懂的
 - Note taken on [2015-03-18 Wed 13:39] \\
   auxiliary
   n.助动词；辅助物；帮助者
@@ -790,3 +1126,9 @@ when git repository conflict , use git mergetool to solve them
   uniform
   n.制服
   adj.一致的；统一的
+
+**** Vocabulary 3:
+- Note taken on [2015-04-01 Wed 14:11] \\
+  hiararchical
+  adj.按等级划分的
+
