@@ -85,8 +85,26 @@
 
 
 **** (BOOK)windows graphic programing
+***** 2.5 Graphic engine
+****** unsorted
+- Note taken on [2015-04-14 Tue 15:39] \\
+  relationships between graphic engine & grapic device drivers
+- Note taken on [2015-04-14 Tue 15:10] \\
+  EngAssociateSurface flHook decide hook out which call implement
+
+  + win32k.sys implements user32.dll & gdi32.dll , has graphic engine system service & window manage system service
+  + Graphic engine system service name begins with NtGdi & window manager begins with NtUser
+  + _w32pServiceTable
+  + GRE(Graphic Render Engine)
+  + DDK document chapter : gdi functions for graphic drivers
+
+***** 2.6 显示驱动程序 
+****** unsorted items
+- Note taken on [2015-04-14 Tue 15:47] \\
+  图形引擎和图形设备驱动程序接口DDI
 ***** GDI/DirectDraw internal structures
 
+***** Unsorted items
 
 **** (BOOK)windows interal 
 ***** system machanism 
@@ -354,6 +372,8 @@ ULONG CacheManagerCount;
   !!!!  when performing stage 1 function analysis , must construct the poc to archive target function
 + Fuzz stratedge
   - write fuzzer after target learning & phase 1 function analysis
+
++ before start hunt , pre-knowledges is most important part to perform .
     
 **** Gdi32 Vulhunt
 
@@ -363,7 +383,9 @@ ULONG CacheManagerCount;
 + MS14-058  [[https://technet.microsoft.com/library/security/ms14-058][mslink]]   [[http://www.cnnvd.org.cn/vulnerability/show/cv_id/2014100308][certlink]]
 + 
   
-
+***** Pre-learning
+  + (pdf)windows graphic programing
+  + 
 ***** Fuzz project
 
 ****** Inspirations & unsolved questions
@@ -409,7 +431,7 @@ gdi32 has about 728 export functions
 ********* describe
 
 ******* NtGdiDdCreateSurface
-[[https://msdn.microsoft.com/en-us/library/ms648489(v%3Dvs.85).aspx][msdn]]
+  [[https://msdn.microsoft.com/en-us/library/ms648489(v%3Dvs.85).aspx][msdn]]
 ******** 1
 ********* arguments & return value
 ********* caller
