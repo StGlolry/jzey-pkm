@@ -653,6 +653,19 @@ via shared memory IPC.
 ***** Serveices
 ***** process functions which take effect on parent or other process
 + [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms684320%2528v%3Dvs.85%2529.aspx][process related apis]]
+**** File Links on windows
+***** Unsorted items
++ 3 types of file links on NTFS file system: hard links,junctions,symbolic links
++ https://msdn.microsoft.com/en-us/library/windows/desktop/aa365006(v=vs.85).aspx
++ reparse point
++ hard link can only link files in same root directory
++ junctions can only link directory but not limited to same root directory
++ symbolic link can be relative or absolute path
++ https://msdn.microsoft.com/en-us/library/windows/desktop/aa363878(v=vs.85).aspx
++ ntfs filesystem
++ [[https://msdn.microsoft.com/en-us/library/windows/desktop/aa363997(v%3Dvs.85).aspx][Distributed Link Tracking and Object Identifiers]]
++ An index of all object IDs is stored on the volume
++ 
 *** IE Reverse 
 **** iertutil.dll
 + Reverse for : 
@@ -1150,6 +1163,20 @@ when git repository conflict , use git mergetool to solve them
   adj.一致的；统一的
 
 **** Vocabulary 3:
+- Note taken on [2015-04-15 Wed 22:34] \\
+  heuristic |hjʊəˈrɪstɪk|
+  A.adjective
+  启发式的
+  B.noun
+  启发
+  C.heuristics noun plural
+  plus singular verb启发法
+- Note taken on [2015-04-15 Wed 22:32] \\
+  conversely |ˈkɒnvɜːsli|
+  adverb
+  相反地
+  you can add the fluid to the powder or, conversely, the powder to the fluid
+  可以把液体加入粉末，或反过来把粉末加入液体
 - Note taken on [2015-04-01 Wed 14:11] \\
   hiararchical
   adj.按等级划分的
