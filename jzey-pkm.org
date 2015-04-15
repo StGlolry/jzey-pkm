@@ -665,6 +665,8 @@ via shared memory IPC.
 + ntfs filesystem
 + [[https://msdn.microsoft.com/en-us/library/windows/desktop/aa363997(v%3Dvs.85).aspx][Distributed Link Tracking and Object Identifiers]]
 + An index of all object IDs is stored on the volume
++ fsutil fsinfo ntfsinfo X:    Abtain ntfs version & X indicate to a volume letter.
++ domain
 + 
 *** IE Reverse 
 **** iertutil.dll
