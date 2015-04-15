@@ -77,7 +77,7 @@
 ** Glory_Vim
 
 
-** Glory_WinKernel
+** Glory_WinKernel                                                             :Stage1_200:
 
 
 *** Reference
@@ -573,7 +573,7 @@ The BeginPath function opens a path bracket in the specified device context.
 ** Glory_WinFont
 
 
-** Glory_IE
+** Glory_IE                                                                    :Stage1_200:
 *** IE Protect Mode Research
 **** some intresting items:
    + Practical Sandbox
@@ -775,9 +775,10 @@ give a poc file or specified progress,extracted all the information in program r
   which we already know what it does, then the sub-funs will be more readable and understandable.
 
 
-** Glory_Flash
+** Glory_Flash                                                                 :Stage1_50:
 *** PCRE
 *** RTMFP
+*** AVM
 
 
 ** Glory_AdobeReader
