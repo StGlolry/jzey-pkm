@@ -102,8 +102,26 @@
 ****** unsorted items
 - Note taken on [2015-04-14 Tue 15:47] \\
   图形引擎和图形设备驱动程序接口DDI
+
+***** 2.7 打印机驱动程序
+
+****** Unsorted items
+  + html printer driver is a good path to learn gdi32.
+  + 
 ***** GDI/DirectDraw internal structures
 
+****** Unsorted items:
+  + pointer & handles have some relationships , can leak some informations?
+  + 内核对象表
+  + ObReferenceObjectByHandle
+  + GdiQueryTable
+  + _pGdiShareHandleTable   _pGdiShareMemory
+  + gdi internal structures generally stored at page pool
+
+***** WINDOWS 图形系统窥视
+
+****** Unsorted items
+  + make every process to load a dll , registry \Windows\Appinit_DLLS
 ***** Unsorted items
 
 **** (BOOK)windows interal 
