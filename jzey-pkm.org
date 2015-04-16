@@ -122,6 +122,12 @@
 
 ****** Unsorted items
   + make every process to load a dll , registry \Windows\Appinit_DLLS
+
+***** 图形设备抽像
+
+****** Unsorted item
++ 显卡相关知识 桢缓冲区 光栅 每个 像素位数和 显视器能表示的 颜色 相关  
++ \\\\.\\DISPLAY3 mirror the scree to another computer?
 ***** Unsorted items
 
 **** (BOOK)windows interal 
@@ -186,7 +192,7 @@
 
 
 
-**** Windows via c/c++
+**** Windows via cc++
 
 *** Research
 
