@@ -598,6 +598,11 @@ The BeginPath function opens a path bracket in the specified device context.
 
 
 ** Glory_IE                                                                    :Stage1_200:
+*** Reference
+**** diving into ie10's epm
+***** unsorted items:
+ + lanchtype aps
+ + 
 *** IE Protect Mode Research
 **** some intresting items:
    + Practical Sandbox
@@ -655,7 +660,12 @@ via shared memory IPC.
 + ieframe!CBrowserFrame::_Handle*()
 + ieframe!CDownloadManager::HandleDownloadMessage()
 **** Elevation Policy
-+ check if some registry is dangerous to execute other commands like cmd and rundll32. 
++ check if some registry is dangerous to execute other commands like cmd and rundll32.
++ check out the registry privilege with sandbox process
++ CVE-2013-5045 Analysis
+  make a link from \user\sid\....\lowregistry\dontshowmethisdialog to  \user\sid\....\low rights and elevation policy 
+  then execute iexplore.exe x  i think when start iexplore.exe  , it will query then create the link dest reg key.
+  there is a post is a little simillar to this vul  [[https://code.google.com/p/google-security-research/issues/detail?id%3D99][ms17-071]]  
 **** COM && DCOM
 ***** Resources
 ****** DCOM Description [[https://technet.microsoft.com/en-us/library/cc958799.aspx][link]]
