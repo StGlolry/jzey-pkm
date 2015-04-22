@@ -2,9 +2,9 @@
 
 
 
-** Glory_ideas 自律
+* Glory_ideas 自律
 
-*** most important abilities for work
+** most important abilities for work
 + programing
 + reverse engineering
 + debugging
@@ -12,33 +12,35 @@
 + experience ( deep understanding the platform of system or language)
 
   
-*** life
+** life
 + what do you really care ?
 + in those areas , you must do the best. for others , have fun.
 
 
-** Glory_Android
+* Glory_Android
 
 
-** Glory_Browser
+* Glory_Browser
 
 
-** Glory_Emacs
-**** 快捷键
+* Glory_Emacs
+*** 快捷键
 + zm  folder all
 + zo  jump back to  {
 + zh zl  move scree to left or right
 + gub guw
 + r e w
-
-**** hi-lock-mode
++ press C-h after any key will show the commands prefix with the key you pressed
++ C-h m   C-h ?
+  
+*** hi-lock-mode
 + C-x w p 
 + C-x w r
 
-**** C-u num C-c C-x b   
+*** C-u num C-c C-x b   
   move a subtree to a indirect buffer with prefix number
-
-**** Org-mode presentations
+  
+*** Org-mode presentations
   [[http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html][non beamer presentations]]
   
   1) Org-tree-slide
@@ -46,7 +48,7 @@
      ~/.emacs.d/site-lisp/org-html5presentation.el
   3) 
 
-**** Latex & pdf export
+*** Latex & pdf export
  
  + sudo apt-get install texlive-full
  + sudo apt-get install texlive-latex-base(use one of them)
@@ -62,7 +64,7 @@
 
   AND SOMEOTHER THINGS IN ~/.custom.el
 
-**** org-mode upgrade
+*** org-mode upgrade
   git clone the official org-mode
   (add-to-list 'load-path "~/org-mode/contrib/lisp")
   (add-to-list 'load-path "~/org-mode/lisp")
@@ -73,20 +75,24 @@
   M-x customize-variable RET org-track-directory RET
   M-x org-track-update RET
 
+*** helm
++ ,xm helm-top ret to kill a process
++ use ,im in orgmode is efficient
++ [[https://github.com/emacs-helm/helm/wiki][helm-wiki]]
 
-** Glory_Vim
-
-
-** Glory_WinKernel                                                             :Stage1_200:
-
-
-*** Reference
-**** (BOOK)windows内核情景分析
+* Glory_Vim
 
 
-**** (BOOK)windows graphic programing
-***** 2.5 Graphic engine
-****** unsorted
+* Glory_WinKernel                                                               :Stage1_200:
+
+
+** Reference
+*** (BOOK)windows内核情景分析
+
+
+*** (BOOK)windows graphic programing
+**** 2.5 Graphic engine
+***** unsorted
 - Note taken on [2015-04-14 Tue 15:39] \\
   relationships between graphic engine & grapic device drivers
 - Note taken on [2015-04-14 Tue 15:10] \\
@@ -98,19 +104,19 @@
   + GRE(Graphic Render Engine)
   + DDK document chapter : gdi functions for graphic drivers
 
-***** 2.6 显示驱动程序 
-****** unsorted items
+**** 2.6 显示驱动程序 
+***** unsorted items
 - Note taken on [2015-04-14 Tue 15:47] \\
   图形引擎和图形设备驱动程序接口DDI
 
-***** 2.7 打印机驱动程序
+**** 2.7 打印机驱动程序
 
-****** Unsorted items
+***** Unsorted items
   + html printer driver is a good path to learn gdi32.
   + 
-***** GDI/DirectDraw internal structures
+**** GDI/DirectDraw internal structures
 
-****** Unsorted items:
+***** Unsorted items:
   + pointer & handles have some relationships , can leak some informations?
   + 内核对象表
   + ObReferenceObjectByHandle
@@ -118,21 +124,21 @@
   + _pGdiShareHandleTable   _pGdiShareMemory
   + gdi internal structures generally stored at page pool
 
-***** WINDOWS 图形系统窥视
+**** WINDOWS 图形系统窥视
 
-****** Unsorted items
+***** Unsorted items
   + make every process to load a dll , registry \Windows\Appinit_DLLS
 
-***** 图形设备抽像
+**** 图形设备抽像
 
-****** Unsorted item
+***** Unsorted item
 + 显卡相关知识 桢缓冲区 光栅 每个 像素位数和 显视器能表示的 颜色 相关  
 + \\\\.\\DISPLAY3 mirror the scree to another computer?
-***** Unsorted items
+**** Unsorted items
 
-**** (BOOK)windows interal 
-***** system machanism 
-****** items: 
+*** (BOOK)windows interal 
+**** system machanism 
+***** items: 
 + !pic   !apic   !ioapic 
 + dt nt!_ktrap_frame 
 + !idt 
@@ -142,27 +148,27 @@
 + !idt 2e 
 + rdmsr 176  (32bits)   rdmsr c0000082 (64bits) 
 + KiSystemService is a dispatcher for system service 
-****** ObjectManager 
-******* windows has 3 kinds of objects : executive object  kernel object  USER/GDI object 
-******* kd > !handle 0 7 62c     : this command display full handle details about process 0x62c 
-******* windows internal part1   page 183   shows how to searching for open files with KD. 
-******* reserve object 
-****** Tracing & Debugging 
+***** ObjectManager 
+****** windows has 3 kinds of objects : executive object  kernel object  USER/GDI object 
+****** kd > !handle 0 7 62c     : this command display full handle details about process 0x62c 
+****** windows internal part1   page 183   shows how to searching for open files with KD. 
+****** reserve object 
+***** Tracing & Debugging 
 + gflags : loader snap 
 + kd >!process 0 0 (list all the process) 
 + kd >.process xxxxxxxx    (switch to the specified process)        kd >!process xxxxxxxx   (show details about specified process) 
 + kd >dt nt!_EPROCESS xxxxxxxx 
 + !peb & dt ntdll!_PEB @$peb + !process 0 7 
-****** KPP (Patch Guard) 
-****** HotPatch 
-***** I/O system 
-****** items: 
+***** KPP (Patch Guard) 
+***** HotPatch 
+**** I/O system 
+***** items: 
 + IRP  : I/O Request Packet  FAST I/O doesn't use IRPs 
 + !object /Devices 
 + !drvobj 
 + !devobj 
 
-***** Memory Management
+**** Memory Management
 + Memory management components (210 in pdf , 188 in book)
   - a set of executive system services to allcating , deallocating and manage virtual memory.
   - translation-not-valid & access fault trap handler
@@ -171,16 +177,16 @@
 
 + copy-on-write
   [[http://en.wikipedia.org/wiki/Copy-on-write][wiki]] 
-****** Services provide by memory management
+***** Services provide by memory management
 + small page & big page
 + reserve & commited page
-****** System Memory Pools
+***** System Memory Pools
 
 
-**** (PDF) win8 heap internals
+*** (PDF) win8 heap internals
 + author & date: Chris Valasek  & Tarjei Mandt   
 
-***** Note:
+**** Note:
 +: www.laboskopia.com  Symbol Type Viewer
 +: 
 
@@ -188,16 +194,16 @@
 
 
 
-***** Questions:
+**** Questions:
 
 
 
-**** Windows via cc++
+*** Windows via cc++
 
-*** Research
+** Research
 
-**** winobj.exe decription and usage
-***** Description
+*** winobj.exe decription and usage
+**** Description
    Deep inside Windows lies a subsystem called the Object Manager 
    that is responsible for tracking every resource in the system.
    “Resources” can be files, Registry entries, hardware devices, running processes 
@@ -214,7 +220,7 @@
    - Creating duplicate handles
    - Closing handles to objects
  
-***** Q A.
+**** Q A.
     + Object Manager Namespace
       - http://www.nynaeve.net/?p=61
       - http://windowsitpro.com/systems-management/inside-nts-object-manager
@@ -225,31 +231,31 @@
       - http://blogs.ejb.cc/archives/7137/windows-internal-object-and-object-manager
 
    
-**** UAC Bypass Study
+*** UAC Bypass Study
 
-***** reference URLS:
+**** reference URLS:
 + http://www.greyhathacker.net/?p=796
 
   
-**** Windows Services
-***** Windows Service Control Manager(SCM)
-***** icacls cacls
-***** wmic service list config  (HKML_SYSTEM_CurrentControlSet_Services)
-****** AccessChk tool
-****** accesschk.exe -quvcw * > services.txt 
-***** Insecure Names Pipes Permissions
+*** Windows Services
+**** Windows Service Control Manager(SCM)
+**** icacls cacls
+**** wmic service list config  (HKML_SYSTEM_CurrentControlSet_Services)
+***** AccessChk tool
+***** accesschk.exe -quvcw * > services.txt 
+**** Insecure Names Pipes Permissions
 
 
-**** Windows Graphic Drivers
+*** Windows Graphic Drivers
 
-***** WDDM (windows display driver model)
+**** WDDM (windows display driver model)
 + http://blogs.ejb.cc/archives/7039/windows-display-driver-wddm-programming-1 WDDM PROGRAMING
 
-***** 
+**** 
 
 
-**** windbg commands list
-***** Kernel Mode:
+*** windbg commands list
+**** Kernel Mode:
 + .reboot
 + !dh imageheader
 + !dml_proc xxxxxxxx
@@ -259,14 +265,14 @@
 + 
 
 
-**** Kernel Functions Debug & Research
-***** NtCallbackReturn
+*** Kernel Functions Debug & Research
+**** NtCallbackReturn
 - References:
   + http://www.codejury.com/user-mode-callbacks-in-windows/
   + http://j00ru.vexillium.org/?p=614 
 
 
-**** windows important structures
+*** windows important structures
 
 dt _ethread
 +  _ETHREAD
@@ -375,7 +381,7 @@ ULONG CacheManagerCount;
 } ETHREAD, *PETHREAD; 
 
 
-**** somefuncitons
+*** somefuncitons
 + PsGetCurrentThreadWin32Thread
   return a ethread struct and ethread struct is start with kthread
   both of them can be displayed by windbg
@@ -383,9 +389,9 @@ ULONG CacheManagerCount;
   dt _KTHREAD
   
 
-*** Vulhunt
+** Vulhunt
 
-**** some expirence.
+*** some expirence.
 
 + framework analysis
 + each function analysis
@@ -399,42 +405,42 @@ ULONG CacheManagerCount;
 
 + before start hunt , pre-knowledges is most important part to perform .
     
-**** Gdi32 Vulhunt
+*** Gdi32 Vulhunt
 
-***** History
+**** History
 + MS15-023  [[https://technet.microsoft.com/library/security/ms15-023][mslink]]
 + MS15-010  [[https://technet.microsoft.com/library/security/ms15-010][mslink]]   [[http://www.cnnvd.org.cn/vulnerability/show/cv_id/2015020240][certlink]]
 + MS14-058  [[https://technet.microsoft.com/library/security/ms14-058][mslink]]   [[http://www.cnnvd.org.cn/vulnerability/show/cv_id/2014100308][certlink]]
 + 
   
-***** Pre-learning
+**** Pre-learning
   + (pdf)windows graphic programing
   + 
-***** Fuzz project
+**** Fuzz project
 
-****** Inspirations & unsolved questions
+***** Inspirations & unsolved questions
 + gdi32.dll & win32k.sys overview
 + focus on object ?
 + what should I do when review the module code for fuzz preparation?
   
 
-***** Code Review
+**** Code Review
 gdi32 has about 728 export functions
 
-****** Phase 1 (50 functions)
-******* NtGdiOpenDCW
-******** 1
-********* arguments & ret value
+***** Phase 1 (50 functions)
+****** NtGdiOpenDCW
+******* 1
+******** arguments & ret value
 + 
-********* caller
+******** caller
 + CreateDCW
 + bCreateDCW
 + hdcCreateDCW
 + NtGdiOpenDCW
   
-********* 
+******** 
 
-******** Referenced funtions & structures:
+******* Referenced funtions & structures:
 + CreateDCW() 
   https://msdn.microsoft.com/en-us/library/windows/desktop/dd183490%28v=vs.85%29.aspx
   The CreateDC function creates a device context (DC) for a device using the specified name.
@@ -444,24 +450,24 @@ gdi32 has about 728 export functions
 
 + pGdiSharedHandleTable 
 
-******* hdcCreateDCW(x,x,x,x,x)
-******** 1
-********* arguments & ret value
+****** hdcCreateDCW(x,x,x,x,x)
+******* 1
+******** arguments & ret value
 + a1 : PCWSTR SourceString
-********* caller
+******** caller
 + CreateDCW
 + bCreateDCW
 + hdcCreateDCW
-********* describe
+******** describe
 
-******* NtGdiDdCreateSurface
+****** NtGdiDdCreateSurface
   [[https://msdn.microsoft.com/en-us/library/ms648489(v%3Dvs.85).aspx][msdn]]
-******** 1
-********* arguments & return value
-********* caller
-********* action
+******* 1
+******** arguments & return value
+******** caller
+******** action
 Attaches a surface to another surface.
-******** reference functions & structures
+******* reference functions & structures
 + DD_DIRECTDRAW_GLOBAL
   [[https://msdn.microsoft.com/en-us/library/ff550586(v%3Dvs.85).aspx][MSDN]]
 + DDSURFACEDESC 
@@ -470,11 +476,11 @@ Attaches a surface to another surface.
   [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff549263%2528v%3Dvs.85%2529.aspx][MSDN]]
   The DdCreateSurface callback function creates a DirectDraw surface.
 
-******* NtGdiDdCreateSurfaceObject
-******* NtGdiBRUSHOBJ_DeleteRbrush
-******** 1
-********* caller : gdiprinterthunk
-******** Reference functions & structures
+****** NtGdiDdCreateSurfaceObject
+****** NtGdiBRUSHOBJ_DeleteRbrush
+******* 1
+******** caller : gdiprinterthunk
+******* Reference functions & structures
 + BRUSHOBJ_pvAllocRbrush 
   [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff538263%2528v%3Dvs.85%2529.aspx][MSDN]]
   The BRUSHOBJ_pvAllocRbrush function allocates memory for the driver's realization of a specified brush.
@@ -484,43 +490,43 @@ Attaches a surface to another surface.
 + DrvEnablePDEV
   [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff556211(v%3Dvs.85).aspx][MSDN]]
   The DrvEnablePDEV function returns a description of the physical device's characteristics to GDI.
-******** Ins & Qus
+******* Ins & Qus
 + who called functions like this? func like this may always called in kernel drivers
   but gdi32 export this func so some user mode program can call this func in normal way not directly. (check the source..)
   Answer: when you find a func in a all , it's not a export func and can't find the reference to this func , it may be a virtual func or a callback func table.
 
-******* NtGdiBeginGdiRendering
-******* NtGdiBeginPath
-******* NtGdiBitBlt
-******** 1
-********* 
-******** Reference functions & structures:
+****** NtGdiBeginGdiRendering
+****** NtGdiBeginPath
+****** NtGdiBitBlt
+******* 1
+******** 
+******* Reference functions & structures:
 + BitBlt
   [[https://msdn.microsoft.com/en-us/library/windows/desktop/dd183370(v%3Dvs.85).aspx][msdn]]
-******* NtGdiCLIPOBJ_cEnumStart
-******* NtGdiCLIPOBJ_ppoGetPath
-******* NtGdiCancelDC
-******** 1
-******** referenced functions & structures
+****** NtGdiCLIPOBJ_cEnumStart
+****** NtGdiCLIPOBJ_ppoGetPath
+****** NtGdiCancelDC
+******* 1
+******* referenced functions & structures
 + CancelDC
   [[https://msdn.microsoft.com/en-us/library/windows/desktop/dd183399(v%3Dvs.85).aspx][msdn]]
-******* XLATEOBJ_piVector
-******** 1
+****** XLATEOBJ_piVector
+******* 1
 [[https://msdn.microsoft.com/en-us/library/windows/hardware/ff570644(v%3Dvs.85).aspx][XLATEOBJ_piVector on msdn]]
 
 The XLATEOBJ_piVector function retrieves a translation vector that the driver can use to translate source indices to destination indices.
 
-********* Arguments & return value
+******** Arguments & return value
 + XLATEOBJ *pxlo
 + The return value is a pointer to a vector of translation entries if the function is successful. Otherwise, it is null, and an error code is logged.
 
-******** Reference functions & structures
+******* Reference functions & structures
 
-******* NtGdiXLATEOBJ_iXlate
-******** 1
+****** NtGdiXLATEOBJ_iXlate
+******* 1
 The XLATEOBJ_iXlate function translates a color index of the source palette to the closest index in the destination palette.
 
-********* Arguments & return value
+******** Arguments & return value
 + XLATEOBJ *pxlo,
 + ULONG    iColor
 
@@ -536,57 +542,57 @@ typedef struct _XLATEOBJ {
 
 + The return value is an index into the destination palette if the function is successful. If the function fails, -1 is returned.
 
-********* Caller
-********* 
-******** Referenced functions & structures
-******* TextOutW
-******** 1
-******** Reference functions & structures
+******** Caller
+******** 
+******* Referenced functions & structures
+****** TextOutW
+******* 1
+******* Reference functions & structures
 + NtGdiExtTextOutW
-******** ins & qus
+******* ins & qus
 + hdc & 0x7F0000 means what?
-******* BeginPath(HDC hdc)
-******** 1
+****** BeginPath(HDC hdc)
+******* 1
 
 [[https://msdn.microsoft.com/en-us/library/windows/desktop/dd183363(v%3Dvs.85).aspx][beginpath on msdn]] 
 
 The BeginPath function opens a path bracket in the specified device context.
 
-********* Arguments & ret values
+******** Arguments & ret values
 
-********* Caller
+******** Caller
 
-******** Referenced functions & structures
-******* AbortPath(HDC hdc)
-******* AbortDoc(HDC hdc)
-******* NtGdiCLIPOBJ_ppoGetPath
-******* CreateColorSpaceA
-******* CreateDIBPatternBrush 77B81097 1063
-******* CreatePalette 77B6B1B0 1085
-******* CreatePatternBrush 77B6AD11 1086
-******* NtGdiDdDDIWaitForVerticalBlankEvent
-******* NtGdiDDCCISetVCPFeature
-******* NtGdiSfmGetNotificationTokens
-******* EndPath(HDC hdc)
-******* FillPath(HDC hdc)
-******* GdiProcessSetup()
-******* StartDocA(HDC hdc, const DOCINFOA *lpdi)
-******* SetPixel(HDC hdc, int x, int y, COLORREF color)
-******* SetLayout(HDC hdc, DWORD l)
-******* SetDIBitsToDevice(HDC hdc, int xDest, int yDest, DWORD w, DWORD h, int xSrc, int ySrc, UINT StartScan, UINT cLines, const void *lpvBits, const BITMAPINFO *lpbmi, UINT ColorUse)
-******* SelectObject(HDC hdc, HGDIOBJ h)
-******* SelectClipPath(HDC hdc, int mode)
-******* GetWindowExtEx(HDC hdc, LPSIZE lpsize)
-******* GdiGetPageHandle(size_t Size, int a2, int a3)
-******* NtGdiEngTextOut
-******* NtGdiEngDeleteClip(x)
-******* EndPage(HDC hdc)
-******* NtGdiDdDDICreateOverlay(x)
-
-
+******* Referenced functions & structures
+****** AbortPath(HDC hdc)
+****** AbortDoc(HDC hdc)
+****** NtGdiCLIPOBJ_ppoGetPath
+****** CreateColorSpaceA
+****** CreateDIBPatternBrush 77B81097 1063
+****** CreatePalette 77B6B1B0 1085
+****** CreatePatternBrush 77B6AD11 1086
+****** NtGdiDdDDIWaitForVerticalBlankEvent
+****** NtGdiDDCCISetVCPFeature
+****** NtGdiSfmGetNotificationTokens
+****** EndPath(HDC hdc)
+****** FillPath(HDC hdc)
+****** GdiProcessSetup()
+****** StartDocA(HDC hdc, const DOCINFOA *lpdi)
+****** SetPixel(HDC hdc, int x, int y, COLORREF color)
+****** SetLayout(HDC hdc, DWORD l)
+****** SetDIBitsToDevice(HDC hdc, int xDest, int yDest, DWORD w, DWORD h, int xSrc, int ySrc, UINT StartScan, UINT cLines, const void *lpvBits, const BITMAPINFO *lpbmi, UINT ColorUse)
+****** SelectObject(HDC hdc, HGDIOBJ h)
+****** SelectClipPath(HDC hdc, int mode)
+****** GetWindowExtEx(HDC hdc, LPSIZE lpsize)
+****** GdiGetPageHandle(size_t Size, int a2, int a3)
+****** NtGdiEngTextOut
+****** NtGdiEngDeleteClip(x)
+****** EndPage(HDC hdc)
+****** NtGdiDdDDICreateOverlay(x)
 
 
-*** todo items:
+
+
+** todo items:
 + study windows internals
 + icalcs
   http://technet.microsoft.com/en-us/library/cc753525.aspx
@@ -594,17 +600,17 @@ The BeginPath function opens a path bracket in the specified device context.
 + how to solve the problem when hunt vul , but can't understand the presudo c code meaning?
   
 
-** Glory_WinFont
+* Glory_WinFont
 
 
-** Glory_IE                                                                    :Stage1_200:
-*** Reference
-**** diving into ie10's epm
-***** unsorted items:
+* Glory_IE                                                                      :Stage1_200:
+** Reference
+*** diving into ie10's epm
+**** unsorted items:
  + lanchtype aps
  + 
-*** IE Protect Mode Research
-**** some intresting items:
+** IE Protect Mode Research
+*** some intresting items:
    + Practical Sandbox
    + \SOFTWARE\Microsoft\Internet Explorer\Low Rights\ElevationPolicy\
    + Elevation Policy
@@ -639,56 +645,56 @@ The BeginPath function opens a path bracket in the specified device context.
 
    + can low right ie modify enviroment of current process or parent process?
 
-**** inter-process communication
-***** Shared Memory IPC
-***** COM ipc
+*** inter-process communication
+**** Shared Memory IPC
+**** COM ipc
 
-**** IE Shims(Compatibility Layer)
+*** IE Shims(Compatibility Layer)
 (provide by ieshims.dll)
-***** Known Broker Object
-**** Services 
+**** Known Broker Object
+*** Services 
 services here refers to any functionality exposed by broker process
 which can be called by sandboxed process
-***** User Broker Object
+**** User Broker Object
 ieframe!CIEUserBrokerObject
 method exposed by UBO can refer to ieframe!CIEUserBrokerObject::QueryInterface()
-***** Known Broker Object
+**** Known Broker Object
 refer to WP_ie10_EPM*.pdf 2.6.2
-***** Broker Components Message Handler
+**** Broker Components Message Handler
 those message handle invoked when inter-process message received
 via shared memory IPC.
 + ieframe!CBrowserFrame::_Handle*()
 + ieframe!CDownloadManager::HandleDownloadMessage()
-**** Elevation Policy
+*** Elevation Policy
 + check if some registry is dangerous to execute other commands like cmd and rundll32.
 + check out the registry privilege with sandbox process
 + CVE-2013-5045 Analysis
   make a link from \user\sid\....\lowregistry\dontshowmethisdialog to  \user\sid\....\low rights and elevation policy 
   then execute iexplore.exe x  i think when start iexplore.exe  , it will query then create the link dest reg key.
   there is a post is a little simillar to this vul  [[https://code.google.com/p/google-security-research/issues/detail?id%3D99][ms17-071]]  
-**** COM && DCOM
-***** Resources
-****** DCOM Description [[https://technet.microsoft.com/en-us/library/cc958799.aspx][link]]
-****** IUnknown Interface [[https://msdn.microsoft.com/en-us/library/windows/desktop/ms680509%2528v%3Dvs.85%2529.aspx][link]]
-****** << ESSENTIAL COM >>  <<Understanding ActiveX and OLE>>
-****** 简单地说，COM是一种跨应用和语言共享二进制代码的方法  [[http://baike.baidu.com/view/6923408.htm][Link]]
-****** COM 一共有三种形式 ，进程内，本地，远程。后两种必须调度接口指针和函数参数。
-***** UserBrokerObject
-****** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
-******* CIEUserBrokerObject::BrokerCreateKnownObject 
-******* CIEUserBrokerObject::QueryInterface
-***** Steps:
+*** COM && DCOM
+**** Resources
+***** DCOM Description [[https://technet.microsoft.com/en-us/library/cc958799.aspx][link]]
+***** IUnknown Interface [[https://msdn.microsoft.com/en-us/library/windows/desktop/ms680509%2528v%3Dvs.85%2529.aspx][link]]
+***** << ESSENTIAL COM >>  <<Understanding ActiveX and OLE>>
+***** 简单地说，COM是一种跨应用和语言共享二进制代码的方法  [[http://baike.baidu.com/view/6923408.htm][Link]]
+***** COM 一共有三种形式 ，进程内，本地，远程。后两种必须调度接口指针和函数参数。
+**** UserBrokerObject
+***** the com class that implement UserBrokerObject is ieframe!CIEUserBrokerObject Class 
+****** CIEUserBrokerObject::BrokerCreateKnownObject 
+****** CIEUserBrokerObject::QueryInterface
+**** Steps:
 1. list all the interface and method sandbox process can refer .
-**** Archive Analysis
-***** CVE-2014-6322
-**** Test Point
-***** unproper set settings.
-***** inter-process Communitation
-***** Serveices
-***** process functions which take effect on parent or other process
+*** Archive Analysis
+**** CVE-2014-6322
+*** Test Point
+**** unproper set settings.
+**** inter-process Communitation
+**** Serveices
+**** process functions which take effect on parent or other process
 + [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms684320%2528v%3Dvs.85%2529.aspx][process related apis]]
-**** File Links on windows
-***** Unsorted items
+*** File Links on windows
+**** Unsorted items
 + 3 types of file links on NTFS file system: hard links,junctions,symbolic links
 + https://msdn.microsoft.com/en-us/library/windows/desktop/aa365006(v=vs.85).aspx
 + reparse point
@@ -702,26 +708,26 @@ via shared memory IPC.
 + fsutil fsinfo ntfsinfo X:    Abtain ntfs version & X indicate to a volume letter.
 + domain
 + 
-*** IE Reverse 
-**** iertutil.dll
+** IE Reverse 
+*** iertutil.dll
 + Reverse for : 
 + version: 11.0.9600.17631
 
-***** 
-*** Small tricks
+**** 
+** Small tricks
 + open local file(my computer zone) to interzone && intranet zone
  add <!-- saved from url=(0013)about:internet --> to top of html file , then you can execute js in local computer, but the childprocess is Low Intergrity Level.
  above line is set to be internet zone ,  below is intranet zone
  <!-- saved from url=(0014)about:internet -->
   <!-- saved from usr=(0016)http://localhost -->
-**** WHEN CREATE A FILE IN %TEMP%LOW folder , the file's IL is low , then open it in iexplore.exe ,even it open locally , but the process is sandboxed 
+*** WHEN CREATE A FILE IN %TEMP%LOW folder , the file's IL is low , then open it in iexplore.exe ,even it open locally , but the process is sandboxed 
 
 
-** Glory_IOS
+* Glory_IOS
 
 
-** Glory_Linux
-*** useful commands
+* Glory_Linux
+** useful commands
 + rar & unrar zip & unzip tar zxvf & xvf
   http://blog.sina.com.cn/s/blog_667725170100npua.html  rar&unrar
 
@@ -755,8 +761,8 @@ via shared memory IPC.
 + du -s * | sort -n | tail   :  display ten biggest files in current directory 
   
 
-*** GDB
-**** commnads
+** GDB
+*** commnads
 + set args
 + bt
 + -tui
@@ -764,16 +770,16 @@ via shared memory IPC.
 + break
 
 
-*** Issues
+** Issues
 + googleearth problem
   when installed googleearth , then exec ./googleearch ,  it failed in googleearth-bin not found .   then sudo apt-get install lsb-core   ,, problem solved.
 
 
-** Glory_ProgramAnalysis
+* Glory_ProgramAnalysis
 
-*** pin
+** pin
 
-**** compile pin tools on windows & linux || b32 & b64
+*** compile pin tools on windows & linux || b32 & b64
 + windows
   install cygwin , add cygwin to path, cd to pinroot/source/tools/    then make
   - 32bits
@@ -782,17 +788,17 @@ via shared memory IPC.
     if you want compile 64 bits pin tools , us cygwin64 vsx64command prompt cd to tools folder make
     if you want compile 32 bits pin tools on x64 windows , us vsx86command prompt , then modify pinroot/source/tools/config/win.var TARGET ?= $(HOST_ARCH) this sentence to TARGET := ia32
 
-**** follow to chiled process and attach to pid
+*** follow to chiled process and attach to pid
 + when use -pid ,it should just next with pin.exe
 + when use -follow-execv , dll should be full path
 
-**** some pin funcs
+*** some pin funcs
 
-***** CHILD_PROCESS_SetPinCommandLine
+**** CHILD_PROCESS_SetPinCommandLine
 
-**** PIN Project
+*** PIN Project
 
-***** FunCap
+**** FunCap
 give a poc file or specified progress,extracted all the information in program run time.
 
 + all the functions executed (or in specified module)
@@ -803,23 +809,23 @@ give a poc file or specified progress,extracted all the information in program r
 + support child process mode
 
 
-** Glory_CodeAnalysis
+* Glory_CodeAnalysis
 
 + when reading source code , we should start at one entry or near entry big functional function
   which we already know what it does, then the sub-funs will be more readable and understandable.
 
 
-** Glory_Flash                                                                 :Stage1_50:
-*** PCRE
-*** RTMFP
-*** AVM
+* Glory_Flash                                                                   :Stage1_50:
+** PCRE
+** RTMFP
+** AVM
 
 
-** Glory_AdobeReader
+* Glory_AdobeReader
 
 
-** Glory_Reverse
-*** reverse pattern
+* Glory_Reverse
+** reverse pattern
 + while
   when you write the reverse code like this:
   while(1)
@@ -832,9 +838,9 @@ give a poc file or specified progress,extracted all the information in program r
   {} 
 
 
-** Glory_Programing
+* Glory_Programing
 
-*** mingw cross-compile
+** mingw cross-compile
 + install mingw(32)
   - sudo apt-get install mingw32  (when i use mingw32 some header files like strsafe.h can't found)
   - then mingw exsist in /usr forlder
@@ -901,17 +907,17 @@ ADD_EXECUTABLE(load ../src/LoadTest.cpp)
 
   - C++11 support in cmake file add_definitions(-std=gnu++0x)
 
-*** Dynamic-Link library 
+** Dynamic-Link library 
 
 +  [[http://msdn.microsoft.com/en-us/library/windows/desktop/ms682596(v%3Dvs.85).aspx][msdn dynamic link libraries]]
 
 
-** Glory_penetration
+* Glory_penetration
 
 
-** Glory_VersionControl
+* Glory_VersionControl
 
-*** github
+** github
 + git config --global user.name "jzey"
 + git config --global user.email "******"
 + git init
@@ -939,11 +945,11 @@ how to use git ignore https://help.github.com/articles/ignoring-files/
 when git repository conflict , use git mergetool to solve them
 
 
-** Glory_ForeignLanguage
+* Glory_ForeignLanguage
 
-*** English
+** English
 
-**** Vocabulary 1:
+*** Vocabulary 1:
 - Note taken on [2015-03-12 Thu 10:06] \\
   skepticism 
   n.怀疑论；skepticism怀疑态度；怀疑主义
@@ -1100,7 +1106,7 @@ when git repository conflict , use git mergetool to solve them
   * v.用具体例证说明
   * 网络实例化；具现化；例示
     
-**** Vocabulary 2:
+*** Vocabulary 2:
 - Note taken on [2015-04-01 Wed 13:54] \\
   bracket
   n.档次；括号；支架
@@ -1199,7 +1205,7 @@ when git repository conflict , use git mergetool to solve them
   n.制服
   adj.一致的；统一的
 
-**** Vocabulary 3:
+*** Vocabulary 3:
 - Note taken on [2015-04-15 Wed 22:34] \\
   heuristic |hjʊəˈrɪstɪk|
   A.adjective
